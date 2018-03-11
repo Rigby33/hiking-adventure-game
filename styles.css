@@ -1,0 +1,24 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+#grid {
+	width: 380px;
+    overflow: hidden;
+	margin: 0 auto;
+}
+
+.newDiv {
+	height: 50px;
+	width: 50px;
+	border: 1px solid white;
+	background-color: green;;
+	display: inline-block;
+	margin: 6px;
+}
+
+.partOfPath {
+	background-color: yellow;
+}
