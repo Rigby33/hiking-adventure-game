@@ -5,18 +5,20 @@
 }
 
 #grid {
-	width: 380px;
+	width: 1040px;
     overflow: hidden;
 	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .newDiv {
-	height: 50px;
-	width: 50px;
-	border: 1px solid white;
-	background-color: green;;
+	height: 40px;
+	width: 40px;
+/*	border: 1px solid white;
+*/	background-color: green;;
 	display: inline-block;
-	margin: 6px;
 }
 
 .partOfPath {
