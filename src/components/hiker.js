@@ -1,11 +1,10 @@
 import React from 'react';
-import './grid.css';
-import Hiker from './hiker';
+import './hiker.css';
 import {connect} from 'react-redux';
 
-class Grid extends React.Component {
+class Hiker extends React.Component {
 	render() {
-		const grid = this.props.matrix.map((row) => 
+		const hikerGrid = this.props.hikerPosition.map((row) =>
 			row.map((cell, index) => {
 				let xId = cell.x.toString();
 				let yId = cell.y.toString();
@@ -15,17 +14,18 @@ class Grid extends React.Component {
 			})
 		);
 		return (
-			<div id="grid">
-			{grid}
-			<Hiker/>
+			<div className="hiker">
+			{hikerGrid}
 			</div>
-			);
+		);
 	}
 }
 
-
 const mapStateToProps = state => {
-	return {matrix: state.matrixReducer.matrix}
+	return {hikerPosition: state.hikerReducer.hikerPosition,
+	}
 }
 
-export default connect(mapStateToProps)(Grid);
+// console.log(mapStateToProps());
+
+export default connect(mapStateToProps)(Hiker);

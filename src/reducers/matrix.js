@@ -14,7 +14,7 @@ function createPath(matrix, row=10, column) {
 	if(row === 0) {
 		return matrix;
 	}
-	if(!column) {
+	if(column === undefined) {
 		column = Math.floor(Math.random()*25);
 		matrix[row][column] = {x: row, y: column, node: true};
 	}
@@ -42,12 +42,6 @@ function possibleNodes(matrix, row, column) {
 			nodes.push({x: row, y: column-1})
 		}
 	}
-	if(column === 0) {
-		if(!matrix[row][column].node) {
-			nodes.push({x: row, y: column+1});
-			console.log(nodes);
-		}
-	}
 	if(column !== 25) {
 		if(!matrix[row][column+1].node) {
 			nodes.push({x: row, y: column+1})
@@ -58,9 +52,7 @@ function possibleNodes(matrix, row, column) {
 
 const matrix = createGrid();
 createPath(matrix);
-
 const initialState = {matrix};
-
 export default (state=initialState, action) => {
 	return state;
 };

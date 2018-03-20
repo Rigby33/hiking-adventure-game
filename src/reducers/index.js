@@ -1,3 +1,7 @@
 import matrixReducer from './matrix';
-export {matrixReducer};
-console.log(matrixReducer);
+import hikerReducer from './hiker';
+import { combineReducers } from 'redux';
+export default combineReducers({
+	matrixReducer,
+	hikerReducer
+});
