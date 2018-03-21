@@ -10,18 +10,20 @@ function createGrid() {
 	return matrix
 }
 
-function createPath(matrix, row=10, column) {
+function createPath(matrix, row=10, column, path=[]) {
 	if(row === 0) {
-		return matrix;
+		return {matrix, path};
 	}
 	if(column === undefined) {
 		column = Math.floor(Math.random()*25);
 		matrix[row][column] = {x: row, y: column, node: true};
+		path.push(matrix[row][column]);
 	}
 	const nextNode = chooseNode(matrix, row, column);
 	nextNode.node = true;
 	matrix[nextNode.x][nextNode.y] = nextNode;
-	createPath(matrix, nextNode.x, nextNode.y);
+	path.push(nextNode);
+	return createPath(matrix, nextNode.x, nextNode.y, path);
 }
 
 function chooseNode(matrix, row, column) {
@@ -31,7 +33,7 @@ function chooseNode(matrix, row, column) {
 }
 
 function possibleNodes(matrix, row, column) {
-		let nodes = [];
+	let nodes = [];
 	if(row !== 0) {
 		if(!matrix[row-1][column].node) {
 			nodes.push({x: row-1, y: column})
@@ -49,10 +51,9 @@ function possibleNodes(matrix, row, column) {
 	}
 	return nodes;
 }
+const {matrix, path} = createPath(createGrid());
 
-const matrix = createGrid();
-createPath(matrix);
-const initialState = {matrix};
+const initialState = {matrix, path};
 export default (state=initialState, action) => {
 	return state;
 };

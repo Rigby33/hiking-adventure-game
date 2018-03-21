@@ -1,22 +1,24 @@
 import matrixReducer from './matrix';
 
-const hikerPosition = matrixReducer().matrix;
+const hikerMatrix = matrixReducer();
 
-// function position() {
-// 	let startingPosition = [];
-// 	for(let i = 0; i < matrix[10].length; i++) {
-// 		if(matrix[10][i].node) {
-// 			startingPosition.push({x: matrix[10][i].x, y: matrix[10][i].x, node: matrix[10][i].node});
-// 			break;
-// 		}
-// 	}
-// 	return startingPosition
+
+function hikerStarter(matrix) {
+	let startingPoint = hikerMatrix.path[0];
+	return startingPoint
+}
+
+// function hikerPosition(matrix) {
+// 	console.log(matrix)
 // }
 
-// const hikerPosition = position();
-const initialState = {hikerPosition};
+// hikerPosition(hikerMatrix);
+
+
+const hikerStart = hikerStarter(hikerMatrix);
+
+const initialState = {hikerMatrix, hikerStart};
 
 export default (state=initialState, action) => {
-	console.log(state);
 	return state;
 }
