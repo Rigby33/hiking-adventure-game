@@ -1,19 +1,9 @@
 import React from 'react';
 import './hiker.css';
 import {connect} from 'react-redux';
+import {hike} from '../actions/hikeractions';
 
 class Hiker extends React.Component {
-		testingArrows(event) {
-			if(event.keyCode === 38) {
-				console.log('up')
-			} else if(event.keyCode === 40) {
-				console.log('down')
-			} else if(event.keyCode === 37) {
-				console.log('left');
-			} else if(event.keyCode === 39) {
-				console.log('right')
-			}
-		}
 	render() {
 		const hikerGrid = this.props.hikerGrid.map((row) =>
 			row.map((row, index) => {
@@ -23,13 +13,13 @@ class Hiker extends React.Component {
 						positions.push(this.props.hikerGrid[10][i]);
 				}
 			}
-				return (row.x === this.props.hikerStart.x && row.y === this.props.hikerStart.y && row.node ?
-					<div className="hiker hikerGrid" key={index} tabIndex={-1} onKeyDown={e => this.testingArrows(e)}></div> :
+				return (row === this.props.hikerStart ?
+					<div className="hiker hikerGrid" key={index}></div> :
 					<div className="hikerGrid" key={index}></div>)
 			})
 		);
 		return (
-			<div className="hikerMatrix">
+			<div className="hikerMatrix" tabIndex="0" onKeyDown={this.props.hike}>
 			{hikerGrid}
 			</div>
 		);
@@ -37,10 +27,17 @@ class Hiker extends React.Component {
 }
 
 const mapStateToProps = state => {
+	console.log(state.hikerReducer.hikerStart);
 	return {
 		hikerGrid: state.matrixReducer.matrix,
-		hikerStart: state.matrixReducer.path[0]
+		hikerStart: state.hikerReducer.hikerStart
 	}
 }
 
-export default connect(mapStateToProps)(Hiker);
+const mapDispatchToProps = dispatch => {
+	return {
+		hike: (event) => dispatch(hike(event.keyCode)) 
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hiker);
