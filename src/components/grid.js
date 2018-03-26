@@ -15,9 +15,11 @@ class Grid extends React.Component {
 			})
 		);
 		return (
+			<div className="gridwrapper">
 			<div id="grid">
 			{grid}
 			<Hiker/>
+			</div>
 			</div>
 			);
 	}

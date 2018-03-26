@@ -52,6 +52,8 @@ export default (state=initialState, action) => {
 			} else {
 				return state;
 			}
+		} else if(action.keycode !== 40 || action.keycode !== 39 || action.keycode !== 38 || action.keycode !== 37) {
+			return state;
 		}
 	} else {
 		return state;

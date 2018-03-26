@@ -27,7 +27,6 @@ class Hiker extends React.Component {
 }
 
 const mapStateToProps = state => {
-	console.log(state.hikerReducer.hikerStart);
 	return {
 		hikerGrid: state.matrixReducer.matrix,
 		hikerStart: state.hikerReducer.hikerStart

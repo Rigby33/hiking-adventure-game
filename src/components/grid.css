@@ -5,6 +5,20 @@
 	margin: 0;
 }
 
+body {
+	text-align: center
+}
+
+.gridwrapper {
+	display: inline-block;
+	margin-top:100px;
+	text-align: center;
+	box-shadow: 0px 2px 10px 0px rgba(158,158,158,.3);
+	padding: 20px;
+	border-radius: 20px;
+	background: #ffffff
+}
+
 #grid {
 	width: 1040px;
     overflow: hidden;
@@ -12,17 +26,18 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	box-shadow: 0px 2px 10px 0px rgba(158,158,158,.3);
 	position: relative;
+	border-radius: 20px
 }
 
 .newDiv {
 	height: 40px;
 	width: 40px;
-/*	border: 1px solid white;
-*/	background-color: green;;
+	background-color: rgba(79, 112, 62, 0.5);
 	display: inline-block;
 }
 
 .partOfPath {
-	background-color: yellow;
+	background-color: rgb(255, 244, 207);
 }

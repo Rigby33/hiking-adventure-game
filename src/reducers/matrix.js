@@ -1,4 +1,4 @@
-function createGrid() {
+export function createGrid() {
 	let matrix = [];
 	for(let x = 0; x <= 10; x++) {
 		let row = [];
@@ -52,6 +52,7 @@ function possibleNodes(matrix, row, column) {
 	return nodes;
 }
 const {matrix, path} = createPath(createGrid());
+
 
 const initialState = {matrix, path};
 export default (state=initialState, action) => {

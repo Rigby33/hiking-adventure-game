@@ -17,7 +17,7 @@
 .hiker {
 	width: 40px;
 	height: 40px;
-	background-color: red;
+	background: url('../images/hiker.png');
 	position: relative;
 }
 
