@@ -1,3 +1,7 @@
 body {
-	background: url('./images/mountain-background.png'), linear-gradient(#FFF4CF, #CCBEA1) center bottom/cover no-repeat
+	background: linear-gradient(#FFF4CF, #CCBEA1);
+}
+
+#root {
+	height: 100vh
 }

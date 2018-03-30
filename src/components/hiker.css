@@ -20,11 +20,3 @@
 	background: url('../images/hiker.png');
 	position: relative;
 }
-
-.testingDiv {
-	width: 40px;
-	height: 40px;
-	background-color: blue;
-	position: absolute;
-	left: 0;
-}
