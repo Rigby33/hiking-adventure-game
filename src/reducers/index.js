@@ -30,7 +30,8 @@ export default function (state, action) {
 			if(state.matrixReducer.matrix[state.hikerReducer.hikerStart.x][state.hikerReducer.hikerStart.y].y > 0) {
 				nextCell = state.matrixReducer.matrix[state.hikerReducer.hikerStart.x][state.hikerReducer.hikerStart.y-1];
 				if(nextCell.node) {
-					let score = state.hikerReducer.hikerPoints++;
+					let score = state.hikerReducer.hikerPoints;
+					score++;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -38,7 +39,8 @@ export default function (state, action) {
 						}
 					})
 				} else {
-					let score = state.hikerReducer.hikerPoints--;
+					let score = state.hikerReducer.hikerPoints;
+					score--;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -56,7 +58,8 @@ export default function (state, action) {
 			if(state.matrixReducer.matrix[state.hikerReducer.hikerStart.x][state.hikerReducer.hikerStart.y].y < 25)  {
 				nextCell = state.matrixReducer.matrix[state.hikerReducer.hikerStart.x][state.hikerReducer.hikerStart.y+1];
 				if(nextCell.node) {
-					let score = state.hikerReducer.hikerPoints++;
+					let score = state.hikerReducer.hikerPoints;
+					score++;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -64,7 +67,8 @@ export default function (state, action) {
 						}
 					})
 				} else {
-					let score = state.hikerReducer.hikerPoints--;
+					let score = state.hikerReducer.hikerPoints;
+					score--;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -85,7 +89,8 @@ export default function (state, action) {
 					console.log('Ah a bear')
 				}
 				if(nextCell.node) {
-					let score = state.hikerReducer.hikerPoints++;
+					let score = state.hikerReducer.hikerPoints;
+					score++;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -93,7 +98,8 @@ export default function (state, action) {
 						}
 					})
 				} else {
-					let score = state.hikerReducer.hikerPoints--;
+					let score = state.hikerReducer.hikerPoints;
+					score--;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -111,7 +117,8 @@ export default function (state, action) {
 			if(state.matrixReducer.matrix[state.hikerReducer.hikerStart.x][state.hikerReducer.hikerStart.y].x < 10)  {
 				nextCell = state.matrixReducer.matrix[state.hikerReducer.hikerStart.x+1][state.hikerReducer.hikerStart.y];
 				if(nextCell.node) {
-					let score = state.hikerReducer.hikerPoints++;
+					let score = state.hikerReducer.hikerPoints;
+					score++;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
@@ -119,7 +126,8 @@ export default function (state, action) {
 						}
 					})
 				} else {
-					let score = state.hikerReducer.hikerPoints--;
+					let score = state.hikerReducer.hikerPoints;
+					score--;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
