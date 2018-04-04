@@ -1,0 +1,66 @@
+.bearattack {
+	display: none;
+	width: 30%;
+	margin: 0 auto;
+}
+
+form {
+	background: linear-gradient(#ffffff 50%, #F2F2F2);
+	border-radius: 10px;
+	padding: 30px;
+	margin-top: 50%;
+	box-shadow: 0px 2px 10px 0px rgba(0,0,0,.15);
+	display: flex;
+	flex-direction: column;
+}
+
+h2 {
+	margin-bottom: 20px
+}
+
+label {
+	margin-bottom: 5px
+}
+
+label:hover {
+	color: #4A6792;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ebca52;
+    transition: 0.2s all linear;
+    outline: none;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+input:checked {
+    border: 8px solid #ebca52;
+}
+
+button {
+	background-color: #4A6792;
+	transition: all .5s ease-in-out;
+	border-radius: 30px;
+	border: 0;
+	color: white;
+	padding: 10px;
+	cursor: pointer;
+	margin: 20px auto 0;
+	width: 50%;
+	text-align: center;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Walter Turncoat', cursive;
+}
+
+button:hover {
+	background-color: #E3BC3D;
+}

@@ -2,7 +2,7 @@ export function createGrid() {
 	let matrix = [];
 	for(let x = 0; x <= 10; x++) {
 		let row = [];
-		for(let y = 0; y <= 25; y++) {
+		for(let y = 0; y <= 19; y++) {
 			row.push({x: x, y: y});
 		}
 		matrix.push(row);
@@ -15,7 +15,7 @@ function createPath(matrix, row=10, column, path=[]) {
 		return {matrix, path};
 	}
 	if(column === undefined) {
-		column = Math.floor(Math.random()*25);
+		column = Math.floor(Math.random()*20);
 		matrix[row][column] = {x: row, y: column, node: true};
 		path.push(matrix[row][column]);
 	}
@@ -23,20 +23,36 @@ function createPath(matrix, row=10, column, path=[]) {
 	nextNode.node = true;
 	matrix[nextNode.x][nextNode.y] = nextNode;
 	path.push(nextNode);
-	let aRandomNumber = Math.floor(Math.random()*100);
-	if(aRandomNumber > 85) {
-		let randomAward = Math.floor(Math.random()*path.length);
-		let randomBear = Math.floor(Math.random()*path.length);
-		path[randomAward]['award'] = true;
-		path[randomBear]['bear'] = true;
-	}
+
 	return createPath(matrix, nextNode.x, nextNode.y, path);
 }
+
+// function award(path) {
+// 	let randomAward = Math.floor(Math.random()*path.length);
+// 	path[randomAward]['award'] = true;
+// }
+
+// function bear(path) {
+// 	let randomBear = Math.floor(Math.random()*path.length);
+// 	if(randomBear !== 0) {
+// 		path[randomBear]['bear'] = true;
+// 	}
+// }
 
 function chooseNode(matrix, row, column) {
 	let nodes = possibleNodes(matrix, row, column);
 	let randomNumber = Math.floor(Math.random()*nodes.length);
-	return nodes[randomNumber];
+	let n = nodes[randomNumber];
+
+	let aRandomNumber = Math.floor(Math.random()*100);
+
+	if(aRandomNumber > 85 && aRandomNumber < 95) {
+		n.award = true;
+	} else if (aRandomNumber > 95) {
+		n.bear = true;
+	}
+
+	return n;
 }
 
 function possibleNodes(matrix, row, column) {
@@ -51,7 +67,7 @@ function possibleNodes(matrix, row, column) {
 			nodes.push({x: row, y: column-1})
 		}
 	}
-	if(column !== 25) {
+	if(column !== 19) {
 		if(!matrix[row][column+1].node) {
 			nodes.push({x: row, y: column+1})
 		}

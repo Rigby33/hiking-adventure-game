@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
-
 .score {
 	display: flex;
 	width: 100%;
 	position: fixed;
 	justify-content: space-between;
 	padding: 30px;
-	font-family: 'Architects Daughter', cursive;
 	font-size: 30px;
 	color: #2D441E;
 }

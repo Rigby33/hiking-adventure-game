@@ -20,7 +20,7 @@ body {
 }
 
 #grid {
-	width: 1040px;
+	width: 1000px;
     overflow: hidden;
 	margin: 0 auto;
 	display: flex;
@@ -32,22 +32,22 @@ body {
 }
 
 .newDiv {
-	height: 40px;
-	width: 40px;
-	background-color: rgba(79, 112, 62, 0.5);
+	height: 50px;
+	width: 50px;
+	background-color: #4F703E;
 	display: inline-block;
 }
 
 .partOfPath {
-	background-color: rgb(255, 244, 207);
+	background-color: #8DBA75;
 }
 
 .award {
-	background: rgb(255, 244, 207) url('../images/award.png') center/60% no-repeat;
+	background: #8DBA75 url('../images/award.png') center/60% no-repeat;
 }
 
 .bear {
-	background: rgb(255, 244, 207) url('../images/bear.png') center/60% no-repeat;
+	background: #8DBA75 url('../images/bear.png') center/60% no-repeat;
 }
 
 @media only screen and (max-width: 1199px) {

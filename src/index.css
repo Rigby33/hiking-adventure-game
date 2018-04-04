@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
+
 body {
 	background: linear-gradient(#FFF4CF, #CCBEA1);
+	font-family: 'Walter Turncoat', cursive;
 }
 
 #root {

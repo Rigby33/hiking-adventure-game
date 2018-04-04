@@ -9,26 +9,23 @@ class Grid extends React.Component {
 			row.map((cell, index) => {
 				let xId = cell.x.toString();
 				let yId = cell.y.toString();
-				if(cell.award && !cell.bear) {
+				if (cell.award) {
 					return (<div className="newDiv partOfPath award" id={xId + yId} key={index}></div>);
-				} else if (!cell.award && cell.bear) {
+				} else if (cell.bear) {
 					return (<div className="newDiv partOfPath bear" id={xId + yId} key={index}></div>);
-				} else if(cell.node) {
+				} else if (cell.node) {
 					return (<div className="newDiv partOfPath" id={xId + yId} key={index}></div>);
 				} else {
 					return (<div className="newDiv" id={xId + yId} key={index}></div>);
 				}
-				// return (cell.node ?
-				// 	<div className="newDiv partOfPath" id={xId + yId} key={index}></div>
-				// 	: <div className="newDiv" id={xId + yId} key={index}></div>);
 			})
 		);
 		return (
 			<div className="gridwrapper">
-			<div id="grid">
-			{grid}
-			<Hiker/>
-			</div>
+				<div id="grid">
+					{grid}
+					<Hiker/>
+				</div>
 			</div>
 			);
 	}
