@@ -3,6 +3,7 @@ import Grid from './grid';
 import Score from './score';
 import './game.css';
 import BearAttack from './bearattack';
+import Footer from './footer';
 
 export default function Game(props) {
 	return (
@@ -10,6 +11,7 @@ export default function Game(props) {
 				<BearAttack/>
 				<Score/>
 				<Grid/>
+				<Footer/>
 			</div>
 		);
 }

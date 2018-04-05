@@ -1,7 +1,6 @@
 .score {
 	display: flex;
 	width: 100%;
-	position: fixed;
 	justify-content: space-between;
 	padding: 30px;
 	font-size: 30px;

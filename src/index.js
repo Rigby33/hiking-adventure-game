@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Game from './components/game';
+// import Game from './components/game';
+import App from './components/app';
 import store from './store';
 import {Provider} from 'react-redux';
 ReactDOM.render(
 	<Provider store={store}>
-		<Game />
+		<App />
 	</Provider>,
 	document.getElementById('root'));
