@@ -4,7 +4,9 @@
 	justify-content: space-between;
 	padding: 30px;
 	font-size: 30px;
-	color: #2D441E;
+	color: white;
+	position: absolute;
+	bottom: 0;
 }
 
 @media only screen and (max-width: 1199px) {

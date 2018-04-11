@@ -9,45 +9,68 @@ body {
 	text-align: center
 }
 
+
 .gridwrapper {
 	display: inline-block;
 /*	margin-top:150px;*/
 	text-align: center;
-	box-shadow: 0px 5px 20px 0px rgba(0,0,0,.3);
-	padding: 20px;
-	border-radius: 20px;
-	background: #ffffff
+/*	box-shadow: 0px 5px 20px 0px rgba(0,0,0,.3);
+*/	/*padding: 20px;*/
+/*	border-radius: 20px;
+*/	margin-top: 50px
+/*	background-color: rgba(150, 214, 116, .2);
+	border: 1px solid rgb(150, 214, 116);*/
+/*	background: #ffffff*/
+}
+
+.gridwrapper:focus {
+    outline: -webkit-focus-ring-color 0;
+}
+
+#grid:focus {
+    outline: -webkit-focus-ring-color 0;
 }
 
 #grid {
-	width: 1000px;
+	width: 1002px;
     overflow: hidden;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	box-shadow: 0px 5px 20px 0px rgba(0,0,0,.15);
-	position: relative;
+/*	border: 1px solid rgb(150, 214, 116);
+*/	position: relative;
+	background: url('../images/pattern.png');
+	/*background-color: rgba(79, 112, 62);*/
 	border-radius: 20px
 }
 
 .newDiv {
 	height: 50px;
 	width: 50px;
-	background-color: #4F703E;
-	display: inline-block;
+/*	background-color: rgba(150, 214, 116, .2);
+*/	display: inline-block;
+	border-radius: 10px;
 }
 
 .partOfPath {
-	background-color: #8DBA75;
+	background-color: rgb(199, 182, 129);
+	border: 5px solid transparent;
+	background-clip: padding-box;
 }
 
 .award {
-	background: #8DBA75 url('../images/award.png') center/60% no-repeat;
+	background: rgb(199, 182, 129) url('../images/trash.png') center/90% no-repeat;
+	margin: 0!important;
+	border: 5px solid transparent;
+	background-clip: padding-box;
 }
 
 .bear {
-	background: #8DBA75 url('../images/bear.png') center/60% no-repeat;
+	background: rgb(199, 182, 129) url('../images/bear.png') center/90% no-repeat;
+	margin: 0!important;
+	border: 5px solid transparent;
+	background-clip: padding-box;
 }
 
 @media only screen and (max-width: 1199px) {

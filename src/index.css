@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
-
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400');
 body {
-	background: linear-gradient(#FFF4CF, #CCBEA1);
-	font-family: 'Walter Turncoat', cursive;
+	font-family: 'Dosis', sans-serif;
+	background: url('./images/woodsbackground.jpg') center bottom/cover no-repeat fixed
 }
 
-#root {
+/*#root {
 	height: 100vh
-}
+}*/

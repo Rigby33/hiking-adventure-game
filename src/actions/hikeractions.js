@@ -4,3 +4,9 @@ export const hike = (keycode, hikerState) => ({
 	keycode,
 	hikerState
 });
+
+export const HIKER_FOCUS = 'HIKER_FOCUS';
+export const focusHiker = focus => ({
+	type: HIKER_FOCUS,
+	focus
+})

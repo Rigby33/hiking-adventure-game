@@ -2,8 +2,14 @@ import React from 'react';
 import './hiker.css';
 import {connect} from 'react-redux';
 import {hike} from '../actions/hikeractions';
+import { focusHiker } from '../actions/hikeractions';
 
 class Hiker extends React.Component {
+	// changefocus(event) {
+	// 	event.preventDefault();
+	// 	const setTrue = 'true'
+	// 	this.props.dispatch(hikerFocus(setTrue));
+	// }
 	render() {
 		const hikerGrid = this.props.hikerGrid.map((row) =>
 			row.map((row, index) => {
@@ -18,9 +24,15 @@ class Hiker extends React.Component {
 					<div className="hikerGrid" key={index}></div>)
 			})
 		);
+
+		const checkFocus = this.props.hikerFocus === true ?
+		<div className="focused"></div> :
+		<div className="notfocused">Click to start hiking</div>;
+
 		return (
-			<div className="hikerMatrix" tabIndex="0" onKeyDown={this.props.hike}>
-			{hikerGrid}
+			<div className="hikerMatrix" tabIndex="0" onClick={this.props.focusHiker} onKeyDown={this.props.hike}>
+				{checkFocus}
+				{hikerGrid}
 			</div>
 		);
 	}
@@ -29,13 +41,15 @@ class Hiker extends React.Component {
 const mapStateToProps = state => {
 	return {
 		hikerGrid: state.matrixReducer.matrix,
-		hikerStart: state.hikerReducer.hikerStart
+		hikerStart: state.hikerReducer.hikerStart,
+		hikerFocus: state.hikerReducer.hikerFocus
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
-		hike: (event) => dispatch(hike(event.keyCode)) 
+		hike: (event) => dispatch(hike(event.keyCode)),
+		focusHiker: () => dispatch(focusHiker()) 
 	}
 }
 

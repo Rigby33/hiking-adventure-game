@@ -1,0 +1,73 @@
+header {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	padding: 0 100px;
+	background-color: rgba(0,0,0,.7)
+}
+
+.logocontainer {
+	text-align: center;
+	width: 20%;
+	padding: 10px;
+}
+
+.logocontainer img {
+	width: 50%
+}
+
+.headerbuttons {
+	padding: 10px;
+	width: 70%;
+	display: flex;
+	justify-content: flex-end;
+	color: white;
+}
+
+.headerlink {
+	color: rgb(255, 200, 22);
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-right: 20px
+}
+
+.headerlink:hover {
+	color: white;
+}
+
+.headerlink:last-of-type {
+	margin-right: 0
+}
+
+.headerbuttons .button > button {
+	margin-right: 20px
+}
+
+.headerbuttons .button > button {
+	padding: 10px 15px;
+	border-radius: 10px;
+	font-size: .75em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	color: rgb(150, 214, 116);
+	transition: all .5s ease-in-out;
+	cursor: pointer;
+	background-color: rgba(150, 214, 116, .2);
+	border: 1px solid rgb(150, 214, 116);
+}
+
+.button:nth-child(1) > button {
+	color: #FFC816;
+	background-color: rgba(255, 200, 22, .2);
+	border: 1px solid rgb(255, 200, 22);
+}
+
+.button:last-of-type > button {
+	margin-right: 0;
+}
+
+.active {
+	color: white;
+}

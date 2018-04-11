@@ -1,19 +1,30 @@
 import matrixReducer from './matrix';
 import hikerReducer from './hiker';
 import bearReducer from './bearattack';
+import instructionReducer from './showinstructions';
 import { combineReducers } from 'redux';
-import { HIKE } from '../actions/hikeractions';
+import { HIKE, HIKER_FOCUS } from '../actions/hikeractions';
 import { ANSWER_BEAR_QUESTION } from '../actions/bearattack';
 import { reset } from './matrix';
+import homeReducer from './home';
+import { SIGNUP, LOGIN, GAME, SHOW_INSTRUCTIONS } from '../actions/homeactions';
 
 const reducer = combineReducers({
 	bearReducer,
 	matrixReducer,
-	hikerReducer
+	hikerReducer,
+	homeReducer
 });
 
 
 export default function (state, action) {
+	if(action.type === SHOW_INSTRUCTIONS) {
+		return Object.assign({}, state, {
+			homeReducer: Object.assign({}, state.homeReducer, {
+				showInstructions: !state.homeReducer.showInstructions
+			})
+		});
+	}
 	if(action.type === HIKE) {
 		const hikerPosition = state.hikerReducer.hikerStart;
 		const lastPath = state.matrixReducer.path[state.matrixReducer.path.length-1];
@@ -24,7 +35,7 @@ export default function (state, action) {
 			const activeQuestion = questionStore[randomQuestion];
 			const show = bearReducer().show;
 			const newHikerStart = newMatrix.path[0];
-			return {
+			return Object.assign({}, state, {
 				bearReducer: Object.assign({}, state.bearReducer, {
 					activeQuestion,
 					show
@@ -32,11 +43,12 @@ export default function (state, action) {
 				matrixReducer: newMatrix,
 				hikerReducer: Object.assign({}, state.hikerReducer, {
 					hikerStart: newHikerStart,
+					hikerFocus: true
 				})
-			};
+			});
 		}
 	}
-		if(action.type === HIKE) {
+		if(action.type === HIKE && !state.bearReducer.show) {
 			let nextCell;
 			const matrix = state.matrixReducer.matrix;
 			const hikerStartX = state.hikerReducer.hikerStart.x;
@@ -50,7 +62,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(nextCell.bear) {
@@ -61,7 +74,8 @@ export default function (state, action) {
 						}),
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: false
 						}
 					})
 				} else if(nextCell.award) {
@@ -71,7 +85,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(!nextCell.node) {
@@ -80,7 +95,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				}
@@ -96,7 +112,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(nextCell.bear) {
@@ -107,7 +124,8 @@ export default function (state, action) {
 						}),
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: false
 						}
 					})
 				} else if(nextCell.award) {
@@ -117,7 +135,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(!nextCell.node) {
@@ -126,7 +145,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else {
@@ -144,7 +164,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(nextCell.bear) {
@@ -155,7 +176,8 @@ export default function (state, action) {
 						}),
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: false
 						}
 					})
 				} else if(nextCell.award) {
@@ -165,7 +187,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(!nextCell.node) {
@@ -174,7 +197,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				}
@@ -190,7 +214,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(nextCell.bear) {
@@ -201,7 +226,8 @@ export default function (state, action) {
 						}),
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: false
 						}
 					})
 				} else if(nextCell.award) {
@@ -211,7 +237,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				} else if(!nextCell.node) {
@@ -220,7 +247,8 @@ export default function (state, action) {
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
-							hikerPoints: score
+							hikerPoints: score,
+							hikerFocus: true
 						}
 					})
 				}
@@ -250,7 +278,8 @@ export default function (state, action) {
 				}),
 				hikerReducer: {
 					hikerStart: state.hikerReducer.hikerStart,
-					hikerPoints: score
+					hikerPoints: score,
+					hikerFocus: false
 				}
 			});
 		} else {
@@ -267,19 +296,34 @@ export default function (state, action) {
 				}),
 				hikerReducer: {
 					hikerStart: state.hikerReducer.hikerStart,
-					hikerPoints: score
+					hikerPoints: score,
+					hikerFocus: false
 				}
 			});
 		}
+	}
+	if(action.type === HIKER_FOCUS) {
+			let score = state.hikerReducer.hikerPoints;
+			return Object.assign({}, state, {
+				hikerReducer: {
+					hikerStart: state.hikerReducer.hikerStart,
+					hikerPoints: score,
+					hikerFocus: true
+				}
+			})
 	}
 	if(action.type === '@@INIT') {
 		const questionStore = bearReducer().questionStore;
 		let randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
 		const activeQuestion = questionStore[randomQuestion];
 		const show = bearReducer().show;
+		const showInstructions = homeReducer().showInstructions;
 		const newMatrix = reset();
 		const newHikerStart = newMatrix.path[0];
 		return {
+			homeReducer: {
+				showInstructions
+			},
 			bearReducer: {
 				activeQuestion,
 				show
@@ -287,7 +331,8 @@ export default function (state, action) {
 			matrixReducer: newMatrix,
 			hikerReducer: {
 				hikerStart: newHikerStart,
-				hikerPoints: 0
+				hikerPoints: 0,
+				hikerFocus: false
 			}
 		};
 	}

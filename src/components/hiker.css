@@ -9,6 +9,10 @@
 	justify-content: center;
 }
 
+.hikerMatrix:focus {
+    outline: -webkit-focus-ring-color 0;
+}
+
 .hikerGrid {
 	width: 50px;
 	height: 50px
@@ -30,6 +34,22 @@
 	width: 60px;
 	height: 60px;
 	background: url('../images/hiker-new.png') center/cover no-repeat;
+}
+
+.focused {
+	display: none
+}
+
+.notfocused {
+	display: block;
+	background-color: rgba(0,0,0,.5);
+	color: white;
+	padding-top: 100px;
+	font-size: 1.5em;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2
 }
 
 /*.withOverflowingBackground {

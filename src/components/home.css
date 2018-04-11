@@ -1,0 +1,190 @@
+.home {
+	padding: 50px 0 0;
+	position: relative;
+	overflow: hidden!important
+}
+
+.instructions {
+	overflow-y: scroll;
+	max-height: 400px;
+	padding: 40px;
+	background: url('../images/form-pattern.png');
+	border-radius: 10px;
+	transition: all 0.25s ease-in-out;
+	font-size: 1.1em;
+	margin-top: 40px
+}
+
+@media only screen and (max-width: 1500px) {
+	.instructions {
+		max-height: 300px
+	}
+}
+
+.homewrapper {
+	width: 65%;
+	margin: 0 auto;
+	color: white;
+	overflow: hidden
+}
+
+.homewrapper h1 {
+	text-transform: uppercase;
+	font-size: 1.6em;
+	font-weight: 400
+}
+
+.homewrapper p {
+	margin-bottom: 20px;
+	font-size: 1em;
+	font-weight: 200;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.4em
+}
+
+.pathmarkers {
+	width: 40%;
+	margin: 20px auto;
+	display: flex;
+	border: 1px solid white;
+	justify-content: space-around;
+	border-radius: 30px;
+	padding: 20px;
+}
+
+.pathmarkers p {
+	margin-bottom: 0;
+	margin-top: 10px;
+	font-weight: 200;
+	font-size: .75em;
+}
+
+.trailwrapper, .nottrailwrapper, .bearwrapper, .whiteblazewrapper {
+	display: flex;
+	flex-direction: column;
+	width: 50%
+}
+
+/*.trail, .award, .bear {
+	height: 50px;
+	width: 50px;
+	background-color: #8DBA75;
+	margin: 0 auto;
+}*/
+
+.nottrail {
+	height: 50px;
+	width: 50px;
+	background-color: #4F703E;
+	margin: 0 auto;
+}
+
+.homebuttons {
+	display: flex;
+	width: 70%;
+	justify-content: space-between;
+	margin: 40px auto;
+}
+
+.homebuttons button {
+	padding: 15px 20px;
+	border-radius: 10px;
+	font-size: 1em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	width: 30%;
+	text-transform: uppercase;
+	/*color: rgb(150, 214, 116);*/
+	color: white;
+	transition: all .5s ease-in-out;
+	cursor: pointer;
+	background-color: rgba(79, 112, 62);
+	border: 0;
+/*	background-color: rgba(150, 214, 116, .2);
+	border: 1px solid rgb(150, 214, 116);*/
+}
+
+.homebuttons button:nth-child(1) {
+/*	color: #FFC816;
+	background-color: rgba(255, 200, 22, .2);
+	border: 1px solid rgb(255, 200, 22);*/
+	color: white;
+	background-color: rgba(194, 154, 27);
+}
+/*62, 106, 168*/
+/*rgba(255, 200, 22) - yellow
+rgba(141, 186, 117) - green*/
+.homebuttons button:hover {
+/*	background-color: rgba(91, 142, 222, .2);
+	color: rgb(91, 142, 222);
+	border: 1px solid rgb(91, 142, 222);*/
+	background-color: rgba(62, 106, 168);
+	color: white;
+/*	border: 1px solid rgb(91, 142, 222);
+*/}
+
+.homelogo {
+	width: 40%;
+	transition: all 0.25s ease-in-out
+}
+
+button.showinstructions {
+	width: 70%;
+	background-color: rgba(62, 106, 168);
+	color: white;
+	border: 0;
+/*	background-color: rgba(255, 255, 255, .2);
+	color: rgb(255, 255, 255);
+	border: 1px solid rgb(255, 255, 255);*/
+	padding: 15px 20px;
+	border-radius: 10px;
+	font-size: 1em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+	transition: all .5s ease-in-out;
+	cursor: pointer;
+}
+
+button.showinstructions:hover {
+/*	background-color: rgba(91, 142, 222, .2)!important;
+	color: rgb(91, 142, 222)!important;
+	border: 1px solid rgb(91, 142, 222)!important;*/
+	background-color: rgba(194, 154, 27)!important;
+}
+/*
+	background-color: rgba(255, 200, 22, .2);
+	border: 1px solid rgb(255, 200, 22);*/
+.instructions {
+	transition: all 0.5s ease-in-out;
+}
+
+/* width */
+.instructions::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.instructions::-webkit-scrollbar-track {
+    background-color: rgba(255, 200, 22, .2);
+    border: 1px solid rgb(255, 200, 22);
+}
+ 
+/* Handle */
+.instructions::-webkit-scrollbar-thumb {
+    background-color: rgba(150, 214, 116, .2);
+	border: 1px solid rgb(150, 214, 116);
+}
+
+/* Handle on hover */
+.instructions::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(91, 142, 222, .2);
+    border: 1px solid rgb(91, 142, 222);
+}
+
+.instructionsWrapper {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	transition: all 0.5s ease-in-out
+}

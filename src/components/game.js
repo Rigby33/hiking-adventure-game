@@ -3,15 +3,15 @@ import Grid from './grid';
 import Score from './score';
 import './game.css';
 import BearAttack from './bearattack';
-import Footer from './footer';
+import Header from './header';
 
 export default function Game(props) {
 	return (
 			<div className="game">
+			<Header/>
 				<BearAttack/>
-				<Score/>
 				<Grid/>
-				<Footer/>
+				<Score/>
 			</div>
 		);
 }

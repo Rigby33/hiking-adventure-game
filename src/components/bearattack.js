@@ -23,7 +23,6 @@ export class BearAttack extends React.Component {
 			goBear = {
 				position: 'absolute',
 				zIndex: 10,
-				height: 100 + 'vh',
 				width: '100%'
 			}
 		} else {
@@ -31,10 +30,12 @@ export class BearAttack extends React.Component {
 		}
 		
 		const formAnswers = answers.map((answer, index) => 
-			(<label htmlFor={answer} key={index}>
+			(<div key={index}>
 				<input id={answer} type="radio" name="answer" value={answer}/>
-				{answer}
-			</label>));
+				<label htmlFor={answer} key={index}>
+					{answer}
+				</label>
+			</div>));
 
 		const question = show === true ?
 		(<div className="bearattack" style={showDiv}>
@@ -45,15 +46,6 @@ export class BearAttack extends React.Component {
 			</form>
 		</div>) :
 		(<div className="bearattack"></div>);
-
-		// const question = hikerPosition.bear && !hikerPosition.award ? 
-		// (<div className="bearattack" style={showDiv}>
-		// 	<form onSubmit={e => this.onSubmit(e)} ref={form => this.form = form}>
-		// 		<h2>{questionTitle}</h2>
-		// 		{formAnswers}
-		// 		<button type="submit">Submit</button>
-		// 	</form>
-		// </div>) : (<div className="bearattack"></div>);
 
 		return (
 			<div style={goBear}>
