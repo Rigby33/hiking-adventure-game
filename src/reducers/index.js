@@ -1,13 +1,12 @@
 import matrixReducer from './matrix';
 import hikerReducer from './hiker';
 import bearReducer from './bearattack';
-import instructionReducer from './showinstructions';
 import { combineReducers } from 'redux';
 import { HIKE, HIKER_FOCUS } from '../actions/hikeractions';
 import { ANSWER_BEAR_QUESTION } from '../actions/bearattack';
 import { reset } from './matrix';
 import homeReducer from './home';
-import { SIGNUP, LOGIN, GAME, SHOW_INSTRUCTIONS } from '../actions/homeactions';
+import { SHOW_INSTRUCTIONS } from '../actions/homeactions';
 
 const reducer = combineReducers({
 	bearReducer,

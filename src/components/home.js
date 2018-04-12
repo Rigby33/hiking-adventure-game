@@ -2,7 +2,7 @@ import React from 'react';
 import './home.css';
 import logo from '../images/logo.png';
 import {connect} from 'react-redux';
-import { signup, login, game, showInstructions } from '../actions/homeactions';
+import { showInstructions } from '../actions/homeactions';
 
 class Home extends React.Component {
 	goToGame(event) {
@@ -18,7 +18,7 @@ class Home extends React.Component {
 		this.props.history.push('/login')
 	}
 	show(event) {
-		event.preventDefault;
+		// event.preventDefault;
 		return this.props.dispatch(showInstructions());
 	}
 	render () {

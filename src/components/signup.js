@@ -1,6 +1,7 @@
 import React from 'react';
 import './signup.css';
 import Header from './header';
+// import RegisterForm from './signupform';
 
 export default function SignUp() {
 	return (

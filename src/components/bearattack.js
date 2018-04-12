@@ -10,7 +10,7 @@ export class BearAttack extends React.Component {
 		    this.props.dispatch(answerBearQuestion(answer.value));
 		}
 	render() {
-		const hikerPosition = this.props.hikerStart;
+		// const hikerPosition = this.props.hikerStart;
 		const activeQuestion = this.props.activeQuestion;
 		const show = this.props.show;
 		const answers = activeQuestion.answers;
@@ -18,16 +18,13 @@ export class BearAttack extends React.Component {
 		let showDiv = {
 			display: 'block'
 		};
-		let goBear;
-		if(show) {
-			goBear = {
-				position: 'absolute',
-				zIndex: 10,
-				width: '100%'
-			}
-		} else {
-			goBear;
-		}
+		let goBear = show ? 
+		{
+			position: 'absolute',
+			zIndex: 10,
+			width: '100%'
+		} : 
+		{};
 		
 		const formAnswers = answers.map((answer, index) => 
 			(<div key={index}>

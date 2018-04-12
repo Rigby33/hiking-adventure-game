@@ -154,10 +154,10 @@ const questionStore = [
 		correctAnswer: 'true'
 	}
 ];
-const randomNumber = Math.floor(Math.random()*(questionStore.length-1));
+// const randomNumber = Math.floor(Math.random()*(questionStore.length-1));
 
 
-const activeQuestion = questionStore[randomNumber];
+// const activeQuestion = questionStore[randomNumber];
 
 const initialState = {questionStore, show: false};
 

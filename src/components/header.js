@@ -2,7 +2,6 @@ import React from 'react';
 import './header.css';
 import logo from '../images/logo.png';
 import { NavLink, Link } from 'react-router-dom';
-import { signup, login, game } from '../actions/homeactions';
 
 export default class Header extends React.Component {
 	// goToGame() {
