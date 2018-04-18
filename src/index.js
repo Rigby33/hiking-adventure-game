@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import Game from './components/game';
 import App from './components/app';
-import store from './store';
+import {BrowserRouter as Router} from 'react-router-dom';
+import store, {history} from './store';
 import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux';
+
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<ConnectedRouter history={history}>
+			<App />
+		</ConnectedRouter>
 	</Provider>,
 	document.getElementById('root'));

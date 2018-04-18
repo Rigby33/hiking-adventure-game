@@ -2,21 +2,99 @@ import matrixReducer from './matrix';
 import hikerReducer from './hiker';
 import bearReducer from './bearattack';
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import { HIKE, HIKER_FOCUS } from '../actions/hikeractions';
 import { ANSWER_BEAR_QUESTION } from '../actions/bearattack';
 import { reset } from './matrix';
 import homeReducer from './home';
+import authReducer from './auth';
+import protectedReducer from './protected';
+import { routerReducer } from 'react-router-redux';
+import {
+    FETCH_PROTECTED_DATA_SUCCESS,
+    FETCH_PROTECTED_DATA_ERROR
+} from '../actions/protected';
+import {
+    SET_AUTH_TOKEN,
+    CLEAR_AUTH,
+    AUTH_REQUEST,
+    AUTH_SUCCESS,
+    AUTH_ERROR,
+    USER_VERIFIED
+} from '../actions/auth';
 import { SHOW_INSTRUCTIONS } from '../actions/homeactions';
 
 const reducer = combineReducers({
+	form: formReducer,
+	authReducer,
+	protectedReducer,
 	bearReducer,
 	matrixReducer,
 	hikerReducer,
-	homeReducer
+	homeReducer,
+	router: routerReducer
 });
 
-
 export default function (state, action) {
+    if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
+        return Object.assign({}, state, {
+            protectedReducer: Object.assign({}, state.protectedReducer, {
+            	data: action.data,
+            	error: null
+            })
+        });
+    }
+    if (action.type === FETCH_PROTECTED_DATA_ERROR) {
+        return Object.assign({}, state, {
+            protectedReducer: Object.assign({}, state.protectedReducer, {
+            	error: action.error
+            })
+        });
+    }
+	if (action.type === USER_VERIFIED) {
+        return Object.assign({}, state, {
+        	authReducer: Object.assign({}, state.authReducer, {
+        		authToken: action.verified
+        	})
+        });
+    }
+
+    if (action.type === CLEAR_AUTH) {
+        return Object.assign({}, state, {
+        	authReducer: Object.assign({}, state.authReducer, {
+        		authToken: null,
+        		currentUser: null
+        	})
+        });
+    }
+
+    if (action.type === AUTH_REQUEST) {
+        return Object.assign({}, state, {
+        	authReducer: Object.assign({}, state.authReducer, {
+        		loading: true,
+        		error: null
+        	})
+        });
+    }
+
+    if (action.type === AUTH_SUCCESS) {
+        return Object.assign({}, state, {
+        	authReducer: Object.assign({}, state.authReducer, {
+        		loading: false,
+        		currentUser: action.currentUser
+        	})
+        });
+    }
+
+    if (action.type === AUTH_ERROR) {
+        return Object.assign({}, state, {
+        	authReducer: Object.assign({}, state.authReducer, {
+        		loading: false,
+        		error: action.error
+        	})
+        });
+    }
+
 	if(action.type === SHOW_INSTRUCTIONS) {
 		return Object.assign({}, state, {
 			homeReducer: Object.assign({}, state.homeReducer, {
@@ -319,7 +397,12 @@ export default function (state, action) {
 		const showInstructions = homeReducer().showInstructions;
 		const newMatrix = reset();
 		const newHikerStart = newMatrix.path[0];
+		const auth = authReducer();
+		const protectedData = protectedReducer();
 		return {
+			router: state.router,
+			protectedReducer: protectedData,
+			authReducer: auth,
 			homeReducer: {
 				showInstructions
 			},
