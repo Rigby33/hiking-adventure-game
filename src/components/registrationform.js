@@ -1,9 +1,11 @@
 import React from 'react';
+import {compose} from 'redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../actions/users';
-import {login} from '../actions/auth';
+import {loginNewUser} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length} from '../validators';
+import { connect } from 'react-redux'; 
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
@@ -11,9 +13,10 @@ export class RegistrationForm extends React.Component {
     onSubmit(values) {
         const {username, password} = values;
         const user = {username, password};
+        const highscore = this.props.highscore;
         console.log(user);
-        return this.props.dispatch(registerUser(user))
-        .then(() => this.props.dispatch(login(username, password)));
+        return this.props.dispatch(registerUser(user, highscore))
+        .then(() => this.props.dispatch(loginNewUser(username, password, highscore)));
     }
 
     render() {
@@ -55,11 +58,13 @@ export class RegistrationForm extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        highscore: state.hikerReducer.highscore
+    }
+}
 
-export default reduxForm({
-    form: 'registration'
-    // onSubmitFail: (errors, dispatch) => {
-    //     console.log(errors)
-	   //  return dispatch(focus('registration', Object.keys(errors)[0]))
-    // }
-})(RegistrationForm);
+export default compose(
+    reduxForm({form: 'registration'}),
+    connect(mapStateToProps)
+    )(RegistrationForm)

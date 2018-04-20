@@ -1,9 +1,21 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function HighScore() {
-	return (
+class HighScore extends React.Component {
+	render() {
+		const highscore = <p>High Score: <span>{this.props.highscore}</span></p>
+		return (
 			<div className="highscore">
-				High Score: 100
+				{highscore}
 			</div>
 		);
+	}
 }
+
+const mapStateToProps = state => {
+	return {
+		highscore: state.hikerReducer.highscore
+	}
+};
+
+export default connect(mapStateToProps)(HighScore);

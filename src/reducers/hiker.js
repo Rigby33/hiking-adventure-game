@@ -11,7 +11,7 @@ function hikerStarter(matrix) {
 
 const hikerStart = hikerStarter(hikerMatrix);
 
-const initialState = {hikerMatrix, hikerStart, hikerPoints: 0, hikerFocus: true};
+const initialState = {hikerMatrix, hikerStart, hikerPoints: 0, highscore: 0, hikerFocus: true};
 
 export default (state=initialState, action) => {
 	return state;

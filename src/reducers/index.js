@@ -22,11 +22,14 @@ import {
     AUTH_ERROR,
     USER_VERIFIED
 } from '../actions/auth';
+import { THRU_HIKER } from '../actions/thruhiker';
 import { SHOW_INSTRUCTIONS } from '../actions/homeactions';
+import thruHikerReducer from './thruhikerreducer';
 
 const reducer = combineReducers({
 	form: formReducer,
 	authReducer,
+	thruHikerReducer,
 	protectedReducer,
 	bearReducer,
 	matrixReducer,
@@ -36,6 +39,11 @@ const reducer = combineReducers({
 });
 
 export default function (state, action) {
+	if(action.type === THRU_HIKER) {
+		return Object.assign({}, state, {
+			thruHikerReducer: {users: action.users}
+		})
+	}
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
         return Object.assign({}, state, {
             protectedReducer: Object.assign({}, state.protectedReducer, {
@@ -137,11 +145,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					// score++;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				} else if(nextCell.bear) {
 					let score = state.hikerReducer.hikerPoints
@@ -149,20 +157,25 @@ export default function (state, action) {
 						bearReducer: Object.assign({}, state.bearReducer, {
 							show: true
 						}),
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: false
-						}
+						})
 					})
 				} else if(nextCell.award) {
 					let score = state.hikerReducer.hikerPoints;
 					score+=10;
+					let highscore = state.hikerReducer.highscore;
+					if(score > highscore) {
+						highscore = score;
+					}
 					delete nextCell.award;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
 							hikerPoints: score,
+							highscore,
 							hikerFocus: true
 						}
 					})
@@ -170,11 +183,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					score--;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				}
 			} else {
@@ -187,11 +200,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					// score++;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				} else if(nextCell.bear) {
 					let score = state.hikerReducer.hikerPoints
@@ -199,20 +212,25 @@ export default function (state, action) {
 						bearReducer: Object.assign({}, state.bearReducer, {
 							show: true
 						}),
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: false
-						}
+						})
 					})
 				} else if(nextCell.award) {
 					let score = state.hikerReducer.hikerPoints;
 					score+=10;
+					let highscore = state.hikerReducer.highscore;
+					if(score > highscore) {
+						highscore = score;
+					}
 					delete nextCell.award;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
 							hikerPoints: score,
+							highscore,
 							hikerFocus: true
 						}
 					})
@@ -220,11 +238,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					score--;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				} else {
 					return state;
@@ -239,11 +257,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					// score++;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				} else if(nextCell.bear) {
 					let score = state.hikerReducer.hikerPoints
@@ -251,20 +269,25 @@ export default function (state, action) {
 						bearReducer: Object.assign({}, state.bearReducer, {
 							show: true
 						}),
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: false
-						}
+						})
 					})
 				} else if(nextCell.award) {
 					let score = state.hikerReducer.hikerPoints;
 					score+=10;
+					let highscore = state.hikerReducer.highscore;
+					if(score > highscore) {
+						highscore = score;
+					}
 					delete nextCell.award;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
 							hikerPoints: score,
+							highscore,
 							hikerFocus: true
 						}
 					})
@@ -272,11 +295,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					score--;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				}
 			} else {
@@ -289,11 +312,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					// score++;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				} else if(nextCell.bear) {
 					let score = state.hikerReducer.hikerPoints
@@ -301,20 +324,25 @@ export default function (state, action) {
 						bearReducer: Object.assign({}, state.bearReducer, {
 							show: true
 						}),
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: false
-						}
+						})
 					})
 				} else if(nextCell.award) {
 					let score = state.hikerReducer.hikerPoints;
 					score+=10;
+					let highscore = state.hikerReducer.highscore;
+					if(score > highscore) {
+						highscore = score;
+					}
 					delete nextCell.award;
 					return Object.assign({}, state, {
 						hikerReducer: {
 							hikerStart: nextCell,
 							hikerPoints: score,
+							highscore,
 							hikerFocus: true
 						}
 					})
@@ -322,11 +350,11 @@ export default function (state, action) {
 					let score = state.hikerReducer.hikerPoints;
 					score--;
 					return Object.assign({}, state, {
-						hikerReducer: {
+						hikerReducer: Object.assign({}, state.hikerReducer, {
 							hikerStart: nextCell,
 							hikerPoints: score,
 							hikerFocus: true
-						}
+						})
 					})
 				}
 			} else {
@@ -347,17 +375,22 @@ export default function (state, action) {
 			const questionStore = bearReducer().questionStore;
 			let randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
 			const activeQuestion = questionStore[randomQuestion];
+			let highscore = state.hikerReducer.highscore;
 			score+=100;
+			if(score > highscore) {
+				highscore = score
+			}
 			return Object.assign({}, state, {
 				bearReducer: Object.assign({}, state.bearReducer, {
 					activeQuestion,
 					show: false
 				}),
-				hikerReducer: {
+				hikerReducer: Object.assign({}, state.hikerReducer, {
 					hikerStart: state.hikerReducer.hikerStart,
 					hikerPoints: score,
+					highscore,
 					hikerFocus: false
-				}
+				})
 			});
 		} else {
 			delete state.hikerReducer.hikerStart.bear;
@@ -371,22 +404,22 @@ export default function (state, action) {
 					activeQuestion,
 					show: false
 				}),
-				hikerReducer: {
+				hikerReducer: Object.assign({}, state.hikerReducer, {
 					hikerStart: state.hikerReducer.hikerStart,
 					hikerPoints: score,
 					hikerFocus: false
-				}
+				})
 			});
 		}
 	}
 	if(action.type === HIKER_FOCUS) {
 			let score = state.hikerReducer.hikerPoints;
 			return Object.assign({}, state, {
-				hikerReducer: {
+				hikerReducer: Object.assign({}, state.hikerReducer, {
 					hikerStart: state.hikerReducer.hikerStart,
 					hikerPoints: score,
 					hikerFocus: true
-				}
+				})
 			})
 	}
 	if(action.type === '@@INIT') {
@@ -399,7 +432,10 @@ export default function (state, action) {
 		const newHikerStart = newMatrix.path[0];
 		const auth = authReducer();
 		const protectedData = protectedReducer();
+		const highscore = hikerReducer().highscore;
+		const thruHikers = thruHikerReducer();
 		return {
+			thruHikerReducer: thruHikers,
 			router: state.router,
 			protectedReducer: protectedData,
 			authReducer: auth,
@@ -414,6 +450,7 @@ export default function (state, action) {
 			hikerReducer: {
 				hikerStart: newHikerStart,
 				hikerPoints: 0,
+				highscore,
 				hikerFocus: false
 			}
 		};

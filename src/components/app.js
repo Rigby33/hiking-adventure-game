@@ -53,7 +53,7 @@ export class App extends React.Component {
 const mapStateToProps = state => {
 	return {
 		hasAuthToken: state.authReducer.authToken !== null,
-		loggedIn: state.authReducer.currentUser !== null
+		loggedIn: state.authReducer.currentUser !== null,
 	}
 }
 

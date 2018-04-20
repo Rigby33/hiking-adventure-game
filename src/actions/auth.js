@@ -8,7 +8,6 @@ import { saveAuthToken, clearAuthToken } from '../local-storage';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => dispatch =>
 	{
-		console.log(authToken);
 		dispatch(userVerified(authToken));
 		dispatch(push('/game'))
 	};
@@ -48,6 +47,39 @@ const storeAuthInfo = (authToken, dispatch) => {
 	saveAuthToken(authToken);
 };
 
+export const loginNewUser = (username, password, highscore) => dispatch => {
+	dispatch(authRequest());
+	return (
+		fetch(`${API_BASE_URL}/auth/login`, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({
+				username,
+				password,
+				highscore
+			})
+		})
+			.then(res => normalizeResponseErrors(res))
+			.then(res => res.json())
+			.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+			.catch(err => {
+				const {code} = err;
+				const message = 
+					code === 401
+						? 'Incorrect username or password'
+						: 'Unable to login, please try again';
+				dispatch(authError(err));
+				return Promise.reject(
+					new SubmissionError({
+						_error: message
+					})
+				);
+			})
+		);
+};
+
 export const login = (username, password) => dispatch => {
 	dispatch(authRequest());
 	return (
@@ -82,7 +114,7 @@ export const login = (username, password) => dispatch => {
 
 export const refreshAuthToken = () => (dispatch, getState) => {
 	dispatch(authRequest());
-	const authToken = getState().auth.authToken;
+	const authToken = getState().authReducer.authToken;
 	return fetch(`${API_BASE_URL}/auth/refresh`, {
 		method: 'POST',
 		headers: {

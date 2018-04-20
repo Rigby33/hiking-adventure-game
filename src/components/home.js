@@ -3,6 +3,8 @@ import './home.css';
 import logo from '../images/logo.png';
 import {connect} from 'react-redux';
 import { showInstructions } from '../actions/homeactions';
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 class Home extends React.Component {
 	goToGame(event) {
@@ -21,7 +23,12 @@ class Home extends React.Component {
 		// event.preventDefault;
 		return this.props.dispatch(showInstructions());
 	}
+    logOut() {
+        this.props.dispatch(clearAuth());
+        clearAuthToken();
+    }
 	render () {
+
 		const showDiv = this.props.show === true ?
 		{
 			visibility: 'visible',
@@ -44,6 +51,7 @@ class Home extends React.Component {
 
 		return (
 			<div className="home">
+			<button onClick={() => this.logOut()}>Log out</button>
 				<div className="homewrapper">
 					<img src={logo} style={smallerLogo} alt="hiking adventure" className="homelogo"/>
 					 <div className="homebuttons">

@@ -26,10 +26,11 @@ const store = createStore(
 // 	);
 
 const authToken = loadAuthToken();
+console.log(authToken);
 if(authToken) {
 	const token = authToken;
 	store.dispatch(setAuthToken(token));
-	// store.dispatch(refreshAuthToken());
+	store.dispatch(refreshAuthToken());
 }
 
 export default store;

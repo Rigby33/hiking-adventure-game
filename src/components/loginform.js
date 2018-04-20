@@ -1,11 +1,14 @@
 import React from 'react';
+import { compose } from 'redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
+import {connect} from 'react-redux';
 import {required, nonEmpty} from '../validators';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
+        const highscore = this.props.highscore;
         return this.props.dispatch(login(values.username, values.password));
     }
 
@@ -41,7 +44,7 @@ export class LoginForm extends React.Component {
                     id="password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button type="submit">
                     Log in
                 </button>
             </form>
@@ -49,7 +52,16 @@ export class LoginForm extends React.Component {
     }
 }
 
-export default reduxForm({
-    form: 'login',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(LoginForm);
+const mapStateToProps = state => {
+    return {
+        highscore: state.hikerReducer.highscore
+    }
+}
+
+export default compose(
+    reduxForm({
+        form: 'login',
+        onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+    }),
+    connect(mapStateToProps)
+    )(LoginForm)
