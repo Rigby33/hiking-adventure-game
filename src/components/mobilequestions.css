@@ -1,0 +1,66 @@
+.mobilequestions {
+	padding: 0 20px;
+}
+
+.mobilequestions form{
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, .5);
+	border-radius: 10px;
+	padding: 20px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	color: black;
+	background: url('../images/bearquestion.png');
+}
+
+.mobilequestions h2 {
+	margin-bottom: 20px;
+	font-weight: 300;
+	text-transform: uppercase
+}
+
+.mobilequestions label {
+	padding: 5px;
+	border: 1px solid transparent;
+	text-align: left;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	cursor: pointer;
+}
+
+.mobilequestions label:hover {
+	color: rgb(194,154,27);
+}
+
+.mobilequestions input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.mobilequestions input:checked + label {
+	background-color: rgb(29,112,62);
+	color: white;
+}
+
+.mobilequestions button {
+	border-radius: 10px;
+	transition: all .5s ease-in-out;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin: 20px auto 0;
+	text-align: center;
+	font-size: 1em;
+	text-transform: uppercase;
+	background-color: rgb(62, 106, 168);
+	color: white;
+	border: 0
+}
+
+.mobilequestions button:hover {
+	background-color: #E3BC3D;
+}

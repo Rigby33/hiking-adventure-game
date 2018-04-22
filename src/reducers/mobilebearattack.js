@@ -155,7 +155,7 @@ const questionStore = [
 	}
 ];
 
-const initialState = {questionStore, show: false};
+const initialState = {questionStore};
 
 export default (state=initialState, action) => {
 	return state;

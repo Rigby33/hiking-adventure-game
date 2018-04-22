@@ -3,10 +3,19 @@ import {connect} from 'react-redux';
 
 class HighScore extends React.Component {
 	render() {
-		const highscore = <p>High Score: <span>{this.props.highscore}</span></p>
+		let highScore;
+		if(this.props.currentUser !== null) {
+			if(this.props.currentUser.highscore > this.props.highscore) {
+				highScore = <p>High Score: <span>{this.props.currentUser.highscore}</span></p>
+			} else {
+				highScore = <p>High Score: <span>{this.props.highscore}</span></p>
+			}
+		} else {
+			highScore = <p>High Score: <span>{this.props.highscore}</span></p>
+		}
 		return (
 			<div className="highscore">
-				{highscore}
+				{highScore}
 			</div>
 		);
 	}
@@ -14,7 +23,8 @@ class HighScore extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		highscore: state.hikerReducer.highscore
+		highscore: state.hikerReducer.highscore,
+		currentUser: state.authReducer.currentUser
 	}
 };
 

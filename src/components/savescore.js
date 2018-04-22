@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {updateHighScore} from '../actions/savescore';
+import './savescore.css';
 
 class SaveScore extends React.Component {
 	onSave() {

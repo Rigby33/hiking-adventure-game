@@ -12,15 +12,9 @@ body {
 
 .gridwrapper {
 	display: inline-block;
-/*	margin-top:150px;*/
 	text-align: center;
-/*	box-shadow: 0px 5px 20px 0px rgba(0,0,0,.3);
-*/	/*padding: 20px;*/
-/*	border-radius: 20px;
-*/	margin-top: 50px
-/*	background-color: rgba(150, 214, 116, .2);
-	border: 1px solid rgb(150, 214, 116);*/
-/*	background: #ffffff*/
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .gridwrapper:focus {

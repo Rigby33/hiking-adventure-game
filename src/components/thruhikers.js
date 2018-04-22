@@ -6,7 +6,6 @@ import {thruHikerData} from '../actions/thruhiker';
 
 export class ThruHikers extends React.Component {
 	componentDidMount() {
-		debugger;
 		this.props.dispatch(thruHikerData());
 	}
 	render() {
@@ -14,7 +13,10 @@ export class ThruHikers extends React.Component {
 		const thruhikers = this.props.users.map((user, index) => {
 			return (
 				<div className="topusersandscores" key={index}>
+					<div className="rank">{index+1}</div>
+					<div className="mobileuserheader">Trail Name</div>
 					<div className="topuser">{user.username}</div>
+					<div className="mobiletopscoreheader">Top Score</div>
 					<div className="topscore">{user.highscore}</div>
 				</div>
 			);
@@ -24,7 +26,8 @@ export class ThruHikers extends React.Component {
 				<Header/>
 				<div className="leaderboard">
 					<div className="leaderboardheader">
-						<div className="userheader">Username</div>
+						<div className="rank"></div>
+						<div className="userheader">Trail Name</div>
 						<div className="scoreheader">Top Score</div>
 					</div>
 					{thruhikers}

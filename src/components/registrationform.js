@@ -27,21 +27,19 @@ export class RegistrationForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 <h2>Sign up to save your HIGH SCORE and get added to the THRU HIKER board</h2>
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username"></label>
                 <Field
                     component={Input}
                     type="text"
                     name="username"
                     validate={[required, nonEmpty]}
                 />
-                <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="password"
                     validate={[required, passwordLength]}
                 />
-                <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                     component={Input}
                     type="password"

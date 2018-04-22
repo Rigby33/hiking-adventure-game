@@ -7,10 +7,45 @@
 	color: white;
 	position: absolute;
 	bottom: 0;
+	z-index: 3;
+}
+
+.currentscore {
+	width: 30%;
+	text-align: left;
+}
+.savescore {
+	width: 30%
+}
+.highscore {
+	width: 30%;
+	text-align: right
 }
 
 @media only screen and (max-width: 1199px) {
 	.score {
 		position: relative;
 	}
+}
+
+@media only screen and (max-width: 767px) {
+	.score {
+		flex-wrap: wrap;
+	}
+	.currentscore, .highscore {
+		width: 50%;
+		font-size: 25px;
+		margin-bottom: 10px
+	}
+	.currentscore {
+		order:1;
+	}
+	.highscore {
+		order: 2;
+	}
+	.savescore {
+		width: 100%;
+		order: 3;
+	}
+
 }

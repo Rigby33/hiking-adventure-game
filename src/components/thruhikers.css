@@ -5,7 +5,8 @@
 	margin: 50px auto 50px;
 	padding: 30px;
 	border-radius: 10px;
-	background: url('../images/form-pattern.png');
+	color: white;
+	/*background: url('../images/bearquestion.png');*/
 }
 
 .leaderboardheader, .topusersandscores {
@@ -18,25 +19,84 @@
 	padding-bottom: 10px;
 	text-transform: uppercase;
 	font-size: 1.5em;
-	color: white;
-	border-bottom: 2px dashed rgb(79, 112, 62);
+	color: rgb(255, 200, 22);
+	border-bottom: 2px dashed rgba(255, 255, 255, .5);
 }
+/*79, 112, 62*/
+/*rgba(62, 106, 168)*/
 
 .leaderboardheader > div, .topusersandscores > div {
-	width: 50%;
+	width: 45%;
 	text-align: left
 }
 
+.rank {
+	width: 10%!important;
+	color: rgba(255, 200, 22);
+}
+
 .topusersandscores {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 12px;
+	padding-bottom: 12px;
 	font-size: 1.2em;
-	color: white;
+	font-weight: 300;
 	font-family: 'Montserrat', sans-serif;
-	border-bottom: 1px solid rgb(79, 112, 62);
+	border-bottom: 2px solid rgba(255, 255, 255, .5);
 }
 
 .topusersandscores:hover {
 	background-color: rgb(194,154,27);
 }
 
+.mobileuserheader {
+	display: none
+}
+.mobiletopscoreheader {
+	display: none
+}
+
+@media only screen and (max-width: 1199px) {
+	.leaderboard {
+		width: 80%
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.leaderboard {
+		width: 100%
+	}
+	.leaderboardheader {
+		display: none
+	}
+	.topusersandscores {
+		flex-wrap: wrap;
+	}
+/*	.topusersandscores > div {
+		width: 100%;
+		text-align: center
+	}*/
+	.rank {
+		width: 100%!important;
+		color: white;
+		margin-bottom: 10px
+	}
+	.mobileuserheader, .mobiletopscoreheader, .topuser, .topscore {
+		width: 50%;
+		margin-bottom: 5px;
+
+	}
+	.mobileuserheader {
+		display: block;
+		color: rgba(255, 200, 22);
+	}
+	.mobiletopscoreheader {
+		display: block;
+		color: rgba(255, 200, 22);
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.mobileuserheader, .mobiletopscoreheader, .topuser, .topscore {
+		width: 100%!important
+	}
+}

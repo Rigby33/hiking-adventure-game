@@ -4,15 +4,20 @@ import Score from './score';
 import './game.css';
 import BearAttack from './bearattack';
 import Header from './header';
-import SaveScore from './savescore';
+import MediaQuery from 'react-responsive';
+import MobileBear from './mobilequestions';
 
 export default function Game(props) {
 	return (
 			<div className="game">
-			<Header/>
-				<SaveScore/>
-				<BearAttack/>
-				<Grid/>
+				<Header/>
+				<MediaQuery query="(min-device-width: 1224px)">
+					<BearAttack/>
+					<Grid/>
+				</MediaQuery>
+				<MediaQuery query="(max-device-width: 1223px)">
+				<MobileBear/>
+				</MediaQuery>
 				<Score/>
 			</div>
 		);

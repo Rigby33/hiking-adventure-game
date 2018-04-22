@@ -29,7 +29,6 @@
 	width: 30%;
 	flex-direction: column;
 	margin: 100px auto 0;
-	background: url('../images/form-pattern.png');
 }
 
 .signup form input {
@@ -39,6 +38,7 @@
 	font-size: 1em;
 	border: 0;
 	margin-bottom: 20px;
+	width: 70%
 }
 
 .signup form button {
@@ -55,4 +55,19 @@
 	cursor: pointer;
 	text-transform: uppercase;
 	margin: 20px auto 0;
+}
+
+@media only screen and (max-width: 1199px) {
+	.signup form {
+		width: 80%;
+		margin-top: 50px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.signup form {
+		width: 100%;
+		margin-top: 50px;
+		padding: 0px 10px;
+	}
 }

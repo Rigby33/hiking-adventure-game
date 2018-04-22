@@ -1,14 +1,15 @@
 .home {
 	padding: 50px 0 0;
 	position: relative;
-	overflow: hidden!important
+	overflow: hidden!important;
+	box-sizing: border-box;
 }
 
 .instructions {
 	overflow-y: scroll;
 	max-height: 400px;
 	padding: 40px;
-	background: url('../images/form-pattern.png');
+	background: url('../images/bearquestion.png');
 	border-radius: 10px;
 	transition: all 0.25s ease-in-out;
 	font-size: 1.1em;
@@ -24,7 +25,7 @@
 .homewrapper {
 	width: 65%;
 	margin: 0 auto;
-	color: white;
+	color: #333333;
 	overflow: hidden
 }
 
@@ -37,7 +38,7 @@
 .homewrapper p {
 	margin-bottom: 20px;
 	font-size: 1em;
-	font-weight: 200;
+	font-weight: 300;
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.4em
 }
@@ -46,23 +47,23 @@
 	width: 40%;
 	margin: 20px auto;
 	display: flex;
-	border: 1px solid white;
 	justify-content: space-around;
-	border-radius: 30px;
 	padding: 20px;
 }
 
 .pathmarkers p {
 	margin-bottom: 0;
 	margin-top: 10px;
-	font-weight: 200;
-	font-size: .75em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: .8em;
+	text-transform: uppercase;
 }
 
 .trailwrapper, .nottrailwrapper, .bearwrapper, .whiteblazewrapper {
 	display: flex;
 	flex-direction: column;
-	width: 50%
+	width: 50%;
 }
 
 /*.trail, .award, .bear {
@@ -72,21 +73,48 @@
 	margin: 0 auto;
 }*/
 
+.pathmarkers > div > div {
+	border-radius: 10px
+}
+
 .nottrail {
 	height: 50px;
 	width: 50px;
-	background-color: #4F703E;
+	background: url('../images/pattern.png') top/500%;
 	margin: 0 auto;
 }
 
-.homebuttons {
+.trail {
+	background-color: rgb(199, 182, 129);
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+}
+
+.awardhome {
+	background: rgb(199, 182, 129) url('../images/trash.png') center center/90% no-repeat;
+	width: 60px;
+	height: 60px;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+
+.bearhome {
+	background: rgb(199, 182, 129) url('../images/bear.png') center center/80% no-repeat;
+	width: 60px;
+	height: 60px;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+
+.homebuttons, .signedinhomebuttons {
 	display: flex;
 	width: 70%;
 	justify-content: space-between;
 	margin: 40px auto;
 }
 
-.homebuttons button {
+.homebuttons button, .signedinhomebuttons button {
 	padding: 15px 20px;
 	border-radius: 10px;
 	font-size: 1em;
@@ -94,38 +122,42 @@
 	font-weight: 300;
 	width: 30%;
 	text-transform: uppercase;
-	/*color: rgb(150, 214, 116);*/
 	color: white;
 	transition: all .5s ease-in-out;
 	cursor: pointer;
 	background-color: rgba(79, 112, 62);
 	border: 0;
-/*	background-color: rgba(150, 214, 116, .2);
-	border: 1px solid rgb(150, 214, 116);*/
 }
 
-.homebuttons button:nth-child(1) {
-/*	color: #FFC816;
-	background-color: rgba(255, 200, 22, .2);
-	border: 1px solid rgb(255, 200, 22);*/
+button:focus {
+	outline: none!important;
+	background-color: rgba(181, 98, 16)!important;
+}
+
+.signedinhomebuttons button {
+	width: 49%;
+}
+
+.signedinhomebuttons button:nth-child(1), .homebuttons button:nth-child(1) {
 	color: white;
 	background-color: rgba(194, 154, 27);
 }
+
 /*62, 106, 168*/
 /*rgba(255, 200, 22) - yellow
 rgba(141, 186, 117) - green*/
-.homebuttons button:hover {
-/*	background-color: rgba(91, 142, 222, .2);
-	color: rgb(91, 142, 222);
-	border: 1px solid rgb(91, 142, 222);*/
+.homebuttons button:hover, .signedinhomebuttons button:hover {
 	background-color: rgba(62, 106, 168);
 	color: white;
-/*	border: 1px solid rgb(91, 142, 222);
-*/}
+}
 
 .homelogo {
 	width: 40%;
 	transition: all 0.25s ease-in-out
+}
+
+.smallerlogo {
+	width: 25%
 }
 
 button.showinstructions {
@@ -166,20 +198,20 @@ button.showinstructions:hover {
 
 /* Track */
 .instructions::-webkit-scrollbar-track {
-    background-color: rgba(255, 200, 22, .2);
-    border: 1px solid rgb(255, 200, 22);
+    background-color: rgba(255, 200, 22);
+/*    border: 1px solid rgb(255, 200, 22);*/
 }
  
 /* Handle */
 .instructions::-webkit-scrollbar-thumb {
-    background-color: rgba(150, 214, 116, .2);
-	border: 1px solid rgb(150, 214, 116);
+    background-color: rgba(79, 112, 62);
+	/*border: 1px solid rgb(150, 214, 116);*/
 }
 
 /* Handle on hover */
 .instructions::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(91, 142, 222, .2);
-    border: 1px solid rgb(91, 142, 222);
+    background-color: rgba(91, 142, 222);
+/*    border: 1px solid rgb(91, 142, 222);*/
 }
 
 .instructionsWrapper {
@@ -187,4 +219,46 @@ button.showinstructions:hover {
 	overflow: hidden;
 	position: relative;
 	transition: all 0.5s ease-in-out
+}
+@media only screen and (max-width: 1199px) {
+	.homewrapper {
+		width: 100%
+	}
+	.homelogo {
+		width: 30%
+	}
+	.instructions {
+		width: 70%;
+		margin: 20px auto;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.home {
+		padding-top: 20px;
+	}
+	.homewrapper {
+		width: 100%
+	}
+	.homelogo {
+		width: 60%
+	}
+	.smallerlogo {
+		width: 40%
+	}
+	.homebuttons, .signedinhomebuttons {
+		flex-direction: column;
+		margin: 20px auto;
+	}
+	.homebuttons button, .signedinhomebuttons button {
+		width: 100%;
+		margin-bottom: 10px
+	}
+	.instructions {
+		padding: 20px;
+	}
+	.pathmarkers {
+		width: 100%
+	}
+	.trailwrapper, .nottrailwrapper, .bearwrapper, .whiteblazewrapper {
+	}
 }

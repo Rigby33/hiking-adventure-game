@@ -1,6 +1,7 @@
 import matrixReducer from './matrix';
 import hikerReducer from './hiker';
 import bearReducer from './bearattack';
+import mobileBearReducer from './mobilebearattack';
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { HIKE, HIKER_FOCUS } from '../actions/hikeractions';
@@ -25,8 +26,10 @@ import {
 import { THRU_HIKER } from '../actions/thruhiker';
 import { SHOW_INSTRUCTIONS } from '../actions/homeactions';
 import thruHikerReducer from './thruhikerreducer';
+import { MOBILE_ANSWER_BEAR_QUESTION } from '../actions/mobilebearattack';
 
 const reducer = combineReducers({
+	mobileBearReducer,
 	form: formReducer,
 	authReducer,
 	thruHikerReducer,
@@ -39,6 +42,39 @@ const reducer = combineReducers({
 });
 
 export default function (state, action) {
+	if(action.type === MOBILE_ANSWER_BEAR_QUESTION) {
+		let answer = action.answer;
+		if(answer === state.mobileBearReducer.correctAnswer) {
+			let score = state.hikerReducer.hikerPoints;
+			const mobileBearQuestions = mobileBearReducer().questionStore;
+			let randomMobileQuestion = Math.floor(Math.random()*(mobileBearQuestions.length-1));
+			const activeMobileQuestion = mobileBearQuestions[randomMobileQuestion];
+			let highscore = state.hikerReducer.highscore;
+			score+=100;
+			if(score > highscore) {
+				highscore = score
+			}
+			return Object.assign({}, state, {
+				mobileBearReducer: activeMobileQuestion,
+				hikerReducer: Object.assign({}, state.hikerReducer, {
+					hikerPoints: score,
+					highscore
+				})
+			});
+		} else {
+			let score = state.hikerReducer.hikerPoints;
+			const mobileBearQuestions = mobileBearReducer().questionStore;
+			let randomMobileQuestion = Math.floor(Math.random()*(mobileBearQuestions.length-1));
+			const activeMobileQuestion = mobileBearQuestions[randomMobileQuestion];
+			score-=100;
+			return Object.assign({}, state, {
+				mobileBearReducer: activeMobileQuestion,
+				hikerReducer: Object.assign({}, state.hikerReducer, {
+					hikerPoints: score,
+				})
+			});
+		}
+	}
 	if(action.type === THRU_HIKER) {
 		return Object.assign({}, state, {
 			thruHikerReducer: {users: action.users}
@@ -434,7 +470,11 @@ export default function (state, action) {
 		const protectedData = protectedReducer();
 		const highscore = hikerReducer().highscore;
 		const thruHikers = thruHikerReducer();
+		const mobileBearQuestions = mobileBearReducer().questionStore;
+		let randomMobileQuestion = Math.floor(Math.random()*(mobileBearQuestions.length-1));
+		const activeMobileQuestion = mobileBearQuestions[randomMobileQuestion];
 		return {
+			mobileBearReducer: activeMobileQuestion,
 			thruHikerReducer: thruHikers,
 			router: state.router,
 			protectedReducer: protectedData,

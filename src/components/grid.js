@@ -33,7 +33,10 @@ class Grid extends React.Component {
 
 
 const mapStateToProps = state => {
-	return {matrix: state.matrixReducer.matrix}
+	return {
+		matrix: state.matrixReducer.matrix,
+		currentUser: state.authReducer.currentUser
+	}
 }
 
 export default connect(mapStateToProps)(Grid);

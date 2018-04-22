@@ -43,22 +43,28 @@ class Home extends React.Component {
 		{
 			backgroundColor: 'rgba(79, 112, 62)'
 		} : {};
-		const smallerLogo = this.props.show ? 
-		{
-			width: '25%'
-		} :
-		{};
+		const homelogo = this.props.show ? 'smallerlogo homelogo' :
+		'homelogo';
 
+		const signUpLogin = this.props.currentUser !== null ?
+			<div className="signedinhomebuttons">
+			<button onClick={e => this.goToGame(e)}>return to hike</button>
+			<button onClick={() => this.logOut()}>Log out</button>
+			</div> :
+			<div className="homebuttons">
+			<button onClick={e => this.goToGame(e)}>hike as guest</button>
+			<button onClick={e => this.goToSignup(e)}>Sign up</button>
+			<button onClick={e => this.goToLogin(e)}>Log in</button>
+			</div>;
+			const helloUser = this.props.currentUser !== null ?
+			<h2 style={{color:'white', fontSize: '2em', fontWeight: 'normal'}}>Welcome back {this.props.currentUser.username}!</h2> :
+			'';
 		return (
 			<div className="home">
-			<button onClick={() => this.logOut()}>Log out</button>
 				<div className="homewrapper">
-					<img src={logo} style={smallerLogo} alt="hiking adventure" className="homelogo"/>
-					 <div className="homebuttons">
-						<button onClick={e => this.goToGame(e)}>Start game</button>
-						<button onClick={e => this.goToSignup(e)}>Sign up</button>
-						<button onClick={e => this.goToLogin(e)}>Log in</button>
-					</div>
+					<img src={logo} alt="hiking adventure" className={homelogo}/>
+					{helloUser}
+					 {signUpLogin}
 					<button className="showinstructions" style={addActive} onClick={e => this.show(e)}>{this.props.show ? 'hide instructions' : 'show instructions'}</button>
 					<div className="instructionsWrapper">
 						<div className="instructions" style={showDiv}>
@@ -77,12 +83,12 @@ class Home extends React.Component {
 							<p>One of the most important things to remember while hiking is to "LEAVE NO TRACE" Throughout the game you will have an opportunity to help clean up the trail. You will see pieces of trash along the way and if you pick up the trash 10 points will be added to your score. In addition to picked up trash you will also have the opportunity to answer trail triva questions. If you hike over a spot with a bear a question will pop up. Answering the question correctly will add 100 points to your score while and incorrect quess will deduct 100 points from your score.</p>
 							 <div className="pathmarkers">
 								<div className="whiteblazewrapper">
-									<div className="award">
+									<div className="awardhome">
 									</div>
 									<p>Trash</p>
 								</div>
 								<div className="bearwrapper">
-									<div className="bear">
+									<div className="bearhome">
 									</div>
 									<p>Bear</p>
 								</div>
@@ -97,7 +103,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		show: state.homeReducer.showInstructions
+		show: state.homeReducer.showInstructions,
+		currentUser: state.authReducer.currentUser
 	}
 }
 

@@ -23,7 +23,7 @@ export class Header extends React.Component {
     }
 	render() {
 		const helloUser = this.props.currentUser !== null ?
-			<h2 style={{color:'white', fontSize: '1.2em'}}>Welcome {this.props.currentUser.username}!</h2> :
+			<h2>Welcome {this.props.currentUser.username}!</h2> :
 			'';
 		const logInOut = this.props.currentUser !== null ?
 		<a className="headerlink" href="#" onClick={(event) => this.logOut(event)} style={{color: this.props.login ? 'white' : ''}}>Log out</a> :

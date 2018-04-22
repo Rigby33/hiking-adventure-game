@@ -27,8 +27,8 @@ export class LoginForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                <h2>Log in to add save your score and climb the thru hiker board</h2>
                 {error}
-                <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
                     type="text"
@@ -36,7 +36,6 @@ export class LoginForm extends React.Component {
                     id="username"
                     validate={[required, nonEmpty]}
                 />
-                <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"

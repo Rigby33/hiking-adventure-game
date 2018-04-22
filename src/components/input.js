@@ -1,4 +1,5 @@
 import React from 'react';
+import './input.css';
 
 export default class Input extends React.Component {
 	componentDidUpdte(prevProps) {
@@ -23,6 +24,7 @@ export default class Input extends React.Component {
 					{warning}
 				</label>
 				<input
+					placeholder={this.props.input.name}
 					{...this.props.input}
 					id={this.props.input.name}
 					type={this.props.type}
