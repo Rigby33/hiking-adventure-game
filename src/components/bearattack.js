@@ -10,7 +10,6 @@ export class BearAttack extends React.Component {
 		    this.props.dispatch(answerBearQuestion(answer.value));
 		}
 	render() {
-		// const hikerPosition = this.props.hikerStart;
 		const activeQuestion = this.props.activeQuestion;
 		const show = this.props.show;
 		const answers = activeQuestion.answers;

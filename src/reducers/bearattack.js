@@ -155,7 +155,10 @@ const questionStore = [
 	}
 ];
 
-const initialState = {questionStore, show: false};
+const randomNumber = Math.floor(Math.random()*(questionStore.length-1));
+
+
+const initialState = {questionStore: questionStore, activeQuestion: questionStore[randomNumber], show: false};
 
 export default (state=initialState, action) => {
 	return state;

@@ -20,13 +20,16 @@ const store = createStore(
 	reducer, {}, composeWithDevTools(applyMiddleware(thunk))
 );
 
+// const store = createStore(
+// 	reducer,  applyMiddleware(thunk)
+// );
+
 // const store = createStore(reducer, applyMiddleware(thunk), 
 // 	window.__REDUX_DEVTOOLS_EXTENSION__ &&
 // 	window.__REDUX_DEVTOOLS_EXTENSION__()
 // 	);
 
 const authToken = loadAuthToken();
-console.log(authToken);
 if(authToken) {
 	const token = authToken;
 	store.dispatch(setAuthToken(token));

@@ -8,16 +8,17 @@ export class MobileQuestions extends React.Component {
 		event.preventDefault();
 	    const { answer } = this.form;
 	    this.props.dispatch(mobileAnswerBearQuestion(answer.value));
+	    
 	}
 	render() {
-		console.log(this.props.mobileBear);
-		const options = this.props.mobileBear.answers
+		console.log(this.props.activeMobileQuestion);
+		const options = this.props.activeMobileQuestion.answers
 		const answerOptions = options.map((answer, index) => 
 			(<div key={index}>
 				<input id={answer} type="radio" name="answer" value={answer}/>
 				<label htmlFor={answer}>{answer}</label>
 			</div>));
-		const question = this.props.mobileBear.question;
+		const question = this.props.activeMobileQuestion.question;
 		return (
 			<div className="mobilequestions">
 				<form onSubmit={e => this.onSubmit(e)} ref={form => this.form = form}>
@@ -32,7 +33,7 @@ export class MobileQuestions extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		mobileBear: state.mobileBearReducer
+		activeMobileQuestion: state.mobileBearReducer.activeQuestion
 	}
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import './home.css';
 import logo from '../images/logo.png';
+import myLogo from '../images/logo.svg';
+import arrows from '../images/arrows.gif';
 import {connect} from 'react-redux';
 import { showInstructions } from '../actions/homeactions';
 import {clearAuth} from '../actions/auth';
@@ -68,7 +70,11 @@ class Home extends React.Component {
 					<button className="showinstructions" style={addActive} onClick={e => this.show(e)}>{this.props.show ? 'hide instructions' : 'show instructions'}</button>
 					<div className="instructionsWrapper">
 						<div className="instructions" style={showDiv}>
+							<p>
+							<b>Test Trail Name:</b> Awkward Magic<br/>
+							<b>Test Password:</b> letmeinnow</p>
 							<p>This desktop game can be easily played with just the arrow keys on your keyboard and some knowledge of backpacking and long backpacking trails.</p>
+							<img src={arrows} alt="arrows" className="arrows"/>
 							<p>The goal of the game is to stay on the trail and collect as many points as possible. The more points you get the higher you will be on the Thru Hiker Board. If you step off of the path 1 point will be deducted from your score.</p>
 							<div className="pathmarkers">
 								<div className="trailwrapper">
@@ -95,6 +101,8 @@ class Home extends React.Component {
 							 </div>
 						</div>
 					</div>
+				</div>
+				<div className="githublink">created by <a href="https://github.com/Rigby33/hiking-adventure-game" target="_blank"><img src={myLogo} alt="Catherine Lynn"/></a>
 				</div>
 			</div>
 			);

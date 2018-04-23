@@ -11,11 +11,11 @@ export default function Game(props) {
 	return (
 			<div className="game">
 				<Header/>
-				<MediaQuery query="(min-device-width: 1224px)">
+				<MediaQuery query="(min-device-width: 1367px)">
 					<BearAttack/>
 					<Grid/>
 				</MediaQuery>
-				<MediaQuery query="(max-device-width: 1223px)">
+				<MediaQuery query="(max-device-width: 1366px)">
 				<MobileBear/>
 				</MediaQuery>
 				<Score/>

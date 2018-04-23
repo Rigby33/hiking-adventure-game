@@ -44,18 +44,21 @@ const reducer = combineReducers({
 export default function (state, action) {
 	if(action.type === MOBILE_ANSWER_BEAR_QUESTION) {
 		let answer = action.answer;
-		if(answer === state.mobileBearReducer.correctAnswer) {
+		if(answer === state.mobileBearReducer.activeQuestion.correctAnswer) {
 			let score = state.hikerReducer.hikerPoints;
 			const mobileBearQuestions = mobileBearReducer().questionStore;
 			let randomMobileQuestion = Math.floor(Math.random()*(mobileBearQuestions.length-1));
-			const activeMobileQuestion = mobileBearQuestions[randomMobileQuestion];
+			const activeMobileQuestion = mobileBearReducer().questionStore[randomMobileQuestion];
 			let highscore = state.hikerReducer.highscore;
 			score+=100;
+			console.log(activeMobileQuestion);
 			if(score > highscore) {
 				highscore = score
 			}
 			return Object.assign({}, state, {
-				mobileBearReducer: activeMobileQuestion,
+				mobileBearReducer: Object.assign({}, state.mobileBearReducer, {
+					activeQuestion: activeMobileQuestion
+				}),
 				hikerReducer: Object.assign({}, state.hikerReducer, {
 					hikerPoints: score,
 					highscore
@@ -65,10 +68,12 @@ export default function (state, action) {
 			let score = state.hikerReducer.hikerPoints;
 			const mobileBearQuestions = mobileBearReducer().questionStore;
 			let randomMobileQuestion = Math.floor(Math.random()*(mobileBearQuestions.length-1));
-			const activeMobileQuestion = mobileBearQuestions[randomMobileQuestion];
+			const activeMobileQuestion = mobileBearReducer().questionStore[randomMobileQuestion];
 			score-=100;
 			return Object.assign({}, state, {
-				mobileBearReducer: activeMobileQuestion,
+				mobileBearReducer: Object.assign({}, state.mobileBearReducer, {
+					activeQuestion: activeMobileQuestion
+				}),
 				hikerReducer: Object.assign({}, state.hikerReducer, {
 					hikerPoints: score,
 				})
@@ -153,12 +158,12 @@ export default function (state, action) {
 			const newMatrix = reset();
 			const questionStore = bearReducer().questionStore;
 			let randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
-			const activeQuestion = questionStore[randomQuestion];
+			const newActiveQuestion = bearReducer().questionStore[randomQuestion];
 			const show = bearReducer().show;
 			const newHikerStart = newMatrix.path[0];
 			return Object.assign({}, state, {
 				bearReducer: Object.assign({}, state.bearReducer, {
-					activeQuestion,
+					activeQuestion: newActiveQuestion,
 					show
 				}),
 				matrixReducer: newMatrix,
@@ -410,15 +415,16 @@ export default function (state, action) {
 			let score = state.hikerReducer.hikerPoints;
 			const questionStore = bearReducer().questionStore;
 			let randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
-			const activeQuestion = questionStore[randomQuestion];
+			const newActiveQuestion = questionStore[randomQuestion];
 			let highscore = state.hikerReducer.highscore;
+			console.log()
 			score+=100;
 			if(score > highscore) {
 				highscore = score
 			}
 			return Object.assign({}, state, {
 				bearReducer: Object.assign({}, state.bearReducer, {
-					activeQuestion,
+					activeQuestion: newActiveQuestion,
 					show: false
 				}),
 				hikerReducer: Object.assign({}, state.hikerReducer, {
@@ -433,11 +439,11 @@ export default function (state, action) {
 			let score = state.hikerReducer.hikerPoints;
 			const questionStore = bearReducer().questionStore;
 			let randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
-			const activeQuestion = questionStore[randomQuestion];
+			const newActiveQuestion = questionStore[randomQuestion];
 			score-=100;
 			return Object.assign({}, state, {
 				bearReducer: Object.assign({}, state.bearReducer, {
-					activeQuestion,
+					activeQuestion: newActiveQuestion,
 					show: false
 				}),
 				hikerReducer: Object.assign({}, state.hikerReducer, {
@@ -461,7 +467,7 @@ export default function (state, action) {
 	if(action.type === '@@INIT') {
 		const questionStore = bearReducer().questionStore;
 		let randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
-		const activeQuestion = questionStore[randomQuestion];
+		const newActiveQuestion = bearReducer().questionStore[randomQuestion];
 		const show = bearReducer().show;
 		const showInstructions = homeReducer().showInstructions;
 		const newMatrix = reset();
@@ -472,9 +478,11 @@ export default function (state, action) {
 		const thruHikers = thruHikerReducer();
 		const mobileBearQuestions = mobileBearReducer().questionStore;
 		let randomMobileQuestion = Math.floor(Math.random()*(mobileBearQuestions.length-1));
-		const activeMobileQuestion = mobileBearQuestions[randomMobileQuestion];
+		const activeMobileQuestion = mobileBearReducer().questionStore[randomMobileQuestion];
 		return {
-			mobileBearReducer: activeMobileQuestion,
+			mobileBearReducer: {
+				activeQuestion: activeMobileQuestion
+			},
 			thruHikerReducer: thruHikers,
 			router: state.router,
 			protectedReducer: protectedData,
@@ -483,7 +491,7 @@ export default function (state, action) {
 				showInstructions
 			},
 			bearReducer: {
-				activeQuestion,
+				activeQuestion: newActiveQuestion,
 				show
 			},
 			matrixReducer: newMatrix,

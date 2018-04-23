@@ -3,6 +3,7 @@
 	position: relative;
 	overflow: hidden!important;
 	box-sizing: border-box;
+	height: 100vh
 }
 
 .instructions {
@@ -42,7 +43,9 @@
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.4em
 }
-
+.arrows {
+	width: 30%
+}
 .pathmarkers {
 	width: 40%;
 	margin: 20px auto;
@@ -56,7 +59,7 @@
 	margin-top: 10px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
-	font-size: .8em;
+	font-size: 1em;
 	text-transform: uppercase;
 }
 
@@ -220,16 +223,45 @@ button.showinstructions:hover {
 	position: relative;
 	transition: all 0.5s ease-in-out
 }
+.githublink {
+	position: absolute;
+	bottom: 10px;
+	color: white;
+	width: 100%;
+	margin: 0 auto;
+	font-size: 23px;
+	text-transform: uppercase;
+}
+.githublink img {
+	width: 6%;
+	vertical-align: middle;
+	margin-bottom: 10px
+}
 @media only screen and (max-width: 1199px) {
+	.home {
+		height: auto
+	}
 	.homewrapper {
 		width: 100%
 	}
 	.homelogo {
-		width: 30%
+		width: 50%
+	}
+	.smallerlogo {
+		width: 25%
 	}
 	.instructions {
 		width: 70%;
 		margin: 20px auto;
+	}
+	.githublink img {
+		width: 15%;
+		margin-bottom: 15px
+	}
+	.githublink {
+		position: relative;
+		margin-top: 100px;
+		transition: all .5s ease-in-out
 	}
 }
 @media only screen and (max-width: 767px) {
@@ -240,7 +272,7 @@ button.showinstructions:hover {
 		width: 100%
 	}
 	.homelogo {
-		width: 60%
+		width: 70%
 	}
 	.smallerlogo {
 		width: 40%
@@ -259,6 +291,8 @@ button.showinstructions:hover {
 	.pathmarkers {
 		width: 100%
 	}
-	.trailwrapper, .nottrailwrapper, .bearwrapper, .whiteblazewrapper {
+	.githublink img {
+		width: 30%;
+		margin-bottom: 15px
 	}
 }

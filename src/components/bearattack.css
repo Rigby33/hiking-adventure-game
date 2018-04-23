@@ -48,17 +48,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /*border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #ebca52;
-    transition: 0.2s all linear;
-    outline: none;
-    margin-right: 5px;
-    position: relative;
-    top: 2px;
-    text-align: left;
-    visibility: hidden*/
 }
 
 .bearattack input:checked + label {
