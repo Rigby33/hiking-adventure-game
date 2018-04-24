@@ -7,27 +7,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 
-
-// export default createStore(reducer,
-// 	window.__REDUX_DEVTOOLS_EXTENSION__ &&
-// 	window.__REDUX_DEVTOOLS_EXTENSION__()
-// 	);
+export const history = createHistory();
 const middleware = [thunk, routerMiddleware(history)]
-export const history = createHistory(); 
 
 
 const store = createStore(
 	reducer, {}, composeWithDevTools(applyMiddleware(thunk))
 );
-
-// const store = createStore(
-// 	reducer,  applyMiddleware(thunk)
-// );
-
-// const store = createStore(reducer, applyMiddleware(thunk), 
-// 	window.__REDUX_DEVTOOLS_EXTENSION__ &&
-// 	window.__REDUX_DEVTOOLS_EXTENSION__()
-// 	);
 
 const authToken = loadAuthToken();
 if(authToken) {

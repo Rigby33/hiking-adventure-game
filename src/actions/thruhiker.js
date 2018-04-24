@@ -21,7 +21,6 @@ export const thruHikerData = () => dispatch => {
 	            return res.json();
 	        })
 	        .then(users => {
-	        	console.log(users);
 	        	return dispatch(thruHikerAction(users))
 	        })
 	)

@@ -58,18 +58,3 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps)(App));
-// export default function App(props) {
-// 	return (
-// 		<Router>
-// 			<div className="app">
-// 				<main>
-// 					<Route exact path="/" component={Home}/>
-// 					<Route exact path="/game" component={Game}/>
-// 					<Route exact path="/signup" component={SignUp}/>
-// 					<Route exact path="/login" component={LogIn}/>
-// 					<Route exact path="/thruhikers" component={ThruHikers}/>
-// 				</main>
-// 			</div>
-// 		</Router>
-// 		)
-// }

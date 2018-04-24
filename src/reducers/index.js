@@ -11,10 +11,10 @@ import homeReducer from './home';
 import authReducer from './auth';
 import protectedReducer from './protected';
 import { routerReducer } from 'react-router-redux';
-import {
-    FETCH_PROTECTED_DATA_SUCCESS,
-    FETCH_PROTECTED_DATA_ERROR
-} from '../actions/protected';
+// import {
+//     FETCH_PROTECTED_DATA_SUCCESS,
+//     FETCH_PROTECTED_DATA_ERROR
+// } from '../actions/protected';
 import {
     SET_AUTH_TOKEN,
     CLEAR_AUTH,
@@ -85,21 +85,21 @@ export default function (state, action) {
 			thruHikerReducer: {users: action.users}
 		})
 	}
-    if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
-        return Object.assign({}, state, {
-            protectedReducer: Object.assign({}, state.protectedReducer, {
-            	data: action.data,
-            	error: null
-            })
-        });
-    }
-    if (action.type === FETCH_PROTECTED_DATA_ERROR) {
-        return Object.assign({}, state, {
-            protectedReducer: Object.assign({}, state.protectedReducer, {
-            	error: action.error
-            })
-        });
-    }
+    // if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
+    //     return Object.assign({}, state, {
+    //         protectedReducer: Object.assign({}, state.protectedReducer, {
+    //         	data: action.data,
+    //         	error: null
+    //         })
+    //     });
+    // }
+    // if (action.type === FETCH_PROTECTED_DATA_ERROR) {
+    //     return Object.assign({}, state, {
+    //         protectedReducer: Object.assign({}, state.protectedReducer, {
+    //         	error: action.error
+    //         })
+    //     });
+    // }
 	if (action.type === USER_VERIFIED) {
         return Object.assign({}, state, {
         	authReducer: Object.assign({}, state.authReducer, {

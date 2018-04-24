@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import Game from './components/game';
 import App from './components/app';
 import {BrowserRouter as Router} from 'react-router-dom';
 import store, {history} from './store';

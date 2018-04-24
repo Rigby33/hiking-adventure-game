@@ -1,3 +1,9 @@
+import React from 'react';
+import {MobileQuestions} from './mobilequestions';
+import {shallow} from 'enzyme';
+import {mobileAnswerBearQuestion} from '../actions/mobilebearattack';
+import configureStore from 'redux-mock-store';
+const mockStore = configureStore();
 const questionStore = [
 	{
 		question: 'How long is the Appalachian Trail?',
@@ -155,10 +161,19 @@ const questionStore = [
 	}
 ];
 
-const randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
+const randomNumber = Math.floor(Math.random()*(questionStore.length-1));
 
-const initialState = {questionStore: questionStore, activeQuestion: questionStore[randomQuestion]};
+const initialState = {questionStore: questionStore, activeQuestion: questionStore[randomNumber]};
 
-export default (state=initialState, action) => {
-	return state;
-}
+describe('<MobileQuestions/>', () => {
+	it('Should render without crashing', () => {
+		const store = mockStore(initialState);
+		store.dispatch(mobileAnswerBearQuestion(initialState.activeQuestion.correctAnswer));
+		const actions = store.getActions();
+		const expectedPayLoad = {
+			answer: initialState.activeQuestion.correctAnswer,
+			type: 'MOBILE_ANSWER_BEAR_QUESTION'
+		};
+		expect(actions).toEqual([expectedPayLoad]);
+	}) 
+})
