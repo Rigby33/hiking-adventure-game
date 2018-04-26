@@ -21,7 +21,7 @@ describe('registerUser', () => {
             	headers: {
             		'content-type': 'application/json'
             	},
-            	body: JSON.stringify({user, highscore})
+            	body: {user, highscore}
             });
         });
     });
