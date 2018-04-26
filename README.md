@@ -1,6 +1,6 @@
 # Hiking an Adventure [![Build Status](https://travis-ci.org/Rigby33/hiking-adventure-game.svg?branch=master)](https://travis-ci.org/Rigby33/hiking-adventure-game)
 
-[Live URL](#live-url) | [Summary of app](#summary-of-application) | [Technologies used](#technologies-used) | [RESTful API](#restful-api)
+[Live URL](#live-url) | [Summary of app](#summary-of-application) | [Technologies used](#technologies-used) | [API](#restful-api)
 ***
 
 ![Hiking an Adventure Logo](https://dl.dropbox.com/s/lun6188r6uki6k5/hiking-an-adventure-md.png)
@@ -57,7 +57,7 @@ The thru hiker leader board is where you can see where you're ranked amongst oth
   - MongoDB
   - Mongoose
 
-## RESTful API
+## API
 
 the backend of this app can be found at https://github.com/Rigby33/backend-hiking-adventure-game
 
