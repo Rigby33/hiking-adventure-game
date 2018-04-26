@@ -22,7 +22,7 @@ describe('thruHikerAction', () => {
 
 
 describe('thruHikerData', () => {
-    it('Should dispatch fetchBoardSuccess', () => {
+    it('Should dispatch thruHikerAction', () => {
 		const users = [
 		{
 			username: 'newuser',
