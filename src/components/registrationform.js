@@ -1,6 +1,6 @@
 import React from 'react';
 import {compose} from 'redux';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {loginNewUser} from '../actions/auth';
 import Input from './input';
@@ -14,7 +14,6 @@ export class RegistrationForm extends React.Component {
         const {username, password} = values;
         const user = {username, password};
         const highscore = this.props.highscore;
-        console.log(user);
         return this.props.dispatch(registerUser(user, highscore))
         .then(() => this.props.dispatch(loginNewUser(username, password, highscore)));
     }

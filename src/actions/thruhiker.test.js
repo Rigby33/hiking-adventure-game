@@ -1,6 +1,7 @@
 import {THRU_HIKER, thruHikerAction, thruHikerData} from './thruhiker';
 import { API_BASE_URL } from '../config';
 
+
 describe('thruHikerAction', () => {
 	it('should return action', () => {
 		const users = [

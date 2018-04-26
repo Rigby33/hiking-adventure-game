@@ -73,3 +73,9 @@
 .bearattack button:hover {
 	background-color: #E3BC3D;
 }
+
+@media only screen and (max-width: 1500px) {
+	.bearattack {
+		width: 50%
+	}
+}

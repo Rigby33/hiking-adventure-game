@@ -3,3 +3,9 @@
 	color: rgb(255, 200, 22);
 	text-transform: uppercase;
 }
+
+.form-error {
+		margin-bottom: 10px;
+	color: rgb(255, 200, 22);
+	text-transform: uppercase;
+}

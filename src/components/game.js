@@ -6,6 +6,7 @@ import BearAttack from './bearattack';
 import Header from './header';
 import MediaQuery from 'react-responsive';
 import MobileBear from './mobilequestions';
+import GoToThruHikers from './gotothruhikers';
 
 export default function Game(props) {
 	return (
@@ -18,6 +19,7 @@ export default function Game(props) {
 				<MediaQuery query="(max-device-width: 1366px)">
 				<MobileBear/>
 				</MediaQuery>
+				<GoToThruHikers/>
 				<Score/>
 			</div>
 		);

@@ -1,5 +1,144 @@
 const questionStore = [
 	{
+		question: 'The elevation gain/loss of hiking the entire AT is the equvilant of climbing mount everest ___ times',
+		answers: [
+			'10',
+			'40',
+			'2',
+			'16'
+		],
+		correctAnswer: '16'
+	},
+	{
+		question: 'Regardless of whether your backpack is waterproof, what should you do?',
+		answers: [
+			'Bring a rain cover',
+			'coat it with water proof spray',
+			'pack items in water proof bags',
+			'do nothing',
+		],
+		correctAnswer: 'pack items in water proof bags'
+	},
+	{
+		question: 'Where should you pack your toiletries in your backpack?',
+		answers: [
+			'top',
+			'bottom',
+			'side',
+			'middle'
+		],
+		correctAnswer: 'bottom'
+	},
+	{
+		question: 'Where should you pack your first aid kit?',
+		answers: [
+			'easy to reach',
+			'hard to find so others don\'t steal it',
+			'anywhere it doesn\'t matter as long as you have it',
+			'You don\'t need a first aid kit'
+		],
+		correctAnswer: 'easy to reach'
+	},
+	{
+		question: 'What type of fitness does backpacking require?',
+		answers: [
+			'cardio',
+			'muscular',
+			'both',
+		],
+		correctAnswer: 'both'
+	},
+	{
+		question: 'How much does 2 gallons of water weight?',
+		answers: [
+			'7 lbs',
+			'5 lbs',
+			'16 lbs',
+			'20 lbs',
+		],
+		correctAnswer: '16 lbs'
+	},
+	{
+		question: 'The AT receives ___ recreation visit annually',
+		answers: [
+			'1 million',
+			'2 million',
+			'100,000',
+			'80,000'
+		],
+		correctAnswer: '1 million'
+	},
+	{
+		question: 'What\'s the best way to dress for hiking?',
+		answers: [
+			'several thin layers',
+			'shorts and t-shirt',
+			'long pants and t-shirt',
+			'no clothes!',
+		],
+		correctAnswer: 'several thin layers'
+	},
+	{
+		question: 'For how long should you boil water to kill off any organisms?',
+		answers: [
+			'5 minutes',
+			'2 minutes',
+			'1 minute',
+			'30 minutes',
+		],
+		correctAnswer: '1 minute'
+	},
+	{
+		question: 'Which disease can you contract from a tick bite?',
+		answers: [
+			'lyme disease',
+			'west nile',
+			'malaria',
+			'the flu'
+		],
+		correctAnswer: 'lyme disease'
+	},
+	{
+		question: 'How long does it take for a tick to transmit lyme disease?',
+		answers: [
+			'60 minutes',
+			'10 days',
+			'30 days',
+			'24 hours',
+		],
+		correctAnswer: '24 hours'
+	},
+	{
+		question: 'Which is an indicator of a serious tick bite?',
+		answers: [
+			'figure 8 shaped rash',
+			'swelling and bruising',
+			'loss of color in the area',
+			'bull\'s eye shaped rash'
+		],
+		correctAnswer: 'bull\'s eye shaped rash'
+	},
+	{
+		question: 'What should you do with a tick once you remove it?',
+		answers: [
+			'burn it',
+			'release it',
+			'smash it',
+			'save it'
+		],
+		correctAnswer: 'save it'
+	},
+	{
+		question: 'How should you protect food while backpacking?',
+		answers: [
+			'string food up between two trees',
+			'keep it in your backpack',
+			'bury it',
+			'keep it in your tent'
+		],
+		correctAnswer: 'string food up between two trees' 
+	},
+	{
 		question: 'How long is the Appalachian Trail?',
 		answers: [
 			'2,181 miles',
@@ -80,7 +219,7 @@ const questionStore = [
 		correctAnswer: 'Maine'	
 	},
 	{
-		question: 'With GPS there’s no need for a compass',
+		question: 'With GPS there\'s no need for a compass',
 		answers: [
 			'true',
 			'false'

@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import { showInstructions } from '../actions/homeactions';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import MediaQuery from 'react-responsive';
+
 
 class Home extends React.Component {
 	goToGame(event) {
@@ -70,6 +72,7 @@ class Home extends React.Component {
 					<button className="showinstructions" style={addActive} onClick={e => this.show(e)}>{this.props.show ? 'hide instructions' : 'show instructions'}</button>
 					<div className="instructionsWrapper">
 						<div className="instructions" style={showDiv}>
+							<MediaQuery query="(min-device-width: 1367px)">
 							<p>
 							<b>Test Trail Name:</b> Awkward Magic<br/>
 							<b>Test Password:</b> letmeinnow</p>
@@ -99,10 +102,17 @@ class Home extends React.Component {
 									<p>Bear</p>
 								</div>
 							 </div>
+							 </MediaQuery>
+							 <MediaQuery query="(max-device-width: 1366px)">
+								<p>
+								<b>Test Trail Name:</b> Awkward Magic<br/>
+								<b>Test Password:</b> letmeinnow</p>
+								<p>You are currently playing the table and mobile version of Hiking an Adventure. This web app was built to be played on lager device sizes with a width of at least 1367px and with a keyboard. But you can still either click hike as a guest or sign up or log in and answer hiking trivia questions. If you answer a question correctly 100 points will be added to your score. Answering a question incorrectly will deduct 100 points. If you are logged in you can save your score and be added to the Thru Hikers leader board!</p>
+							 </MediaQuery>
 						</div>
 					</div>
 				</div>
-				<div className="githublink">created by <a href="https://github.com/Rigby33/hiking-adventure-game" target="_blank"><img src={myLogo} alt="Catherine Lynn"/></a>
+				<div className="githublink">created by <a href="https://github.com/Rigby33/hiking-adventure-game" target="_blank" rel="noopener noreferrer"><img src={myLogo} alt="Catherine Lynn"/></a>
 				</div>
 			</div>
 			);

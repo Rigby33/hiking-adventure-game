@@ -25,13 +25,13 @@ class Hiker extends React.Component {
 			})
 		);
 
-		const checkFocus = this.props.hikerFocus === true ?
-		<div className="focused"></div> :
-		<div className="notfocused">Click to start hiking</div>;
+		// const checkFocus = this.props.hikerFocus === true ?
+		// <div className="focused"></div> :
+		// <div className="notfocused">Click to start hiking</div>;
 
 		return (
 			<div className="hikerMatrix" tabIndex="0" onClick={this.props.focusHiker} onKeyDown={this.props.hike}>
-				{checkFocus}
+			<p>Click to start hiking</p>
 				{hikerGrid}
 			</div>
 		);

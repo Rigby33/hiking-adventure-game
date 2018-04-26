@@ -3,23 +3,23 @@ header {
 	justify-content: space-between;
 	width: 100%;
 	align-items: center;
-	padding: 0 100px;
+	padding: 0 50px;
 	background-color: rgba(0,0,0,.7);
 }
 
 .logocontainer {
 	text-align: center;
-	width: 30%;
+	width: 25%;
 	padding: 10px;
 }
 
 .logocontainer img {
-	width: 40%
+	width: 45%
 }
 
 .headerbuttons {
 	padding: 10px;
-	width: 30%;
+	width: 37%;
 	display: flex;
 	justify-content: flex-end;
 	color: white;

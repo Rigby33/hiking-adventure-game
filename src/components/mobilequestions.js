@@ -11,7 +11,6 @@ export class MobileQuestions extends React.Component {
 	    
 	}
 	render() {
-		console.log(this.props.activeMobileQuestion);
 		const options = this.props.activeMobileQuestion.answers
 		const answerOptions = options.map((answer, index) => 
 			(<div key={index}>

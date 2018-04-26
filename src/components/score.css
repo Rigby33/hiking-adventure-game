@@ -22,6 +22,13 @@
 	text-align: right
 }
 
+@media only screen and (max-height: 800px) {
+	.score {
+		position: relative;
+		padding: 0 30px 30px;
+	}
+}
+
 @media only screen and (max-width: 1199px) {
 	.score {
 		position: relative;

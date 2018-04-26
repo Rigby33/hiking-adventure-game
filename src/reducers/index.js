@@ -16,7 +16,6 @@ import { routerReducer } from 'react-router-redux';
 //     FETCH_PROTECTED_DATA_ERROR
 // } from '../actions/protected';
 import {
-    SET_AUTH_TOKEN,
     CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_SUCCESS,
@@ -27,8 +26,11 @@ import { THRU_HIKER } from '../actions/thruhiker';
 import { SHOW_INSTRUCTIONS } from '../actions/homeactions';
 import thruHikerReducer from './thruhikerreducer';
 import { MOBILE_ANSWER_BEAR_QUESTION } from '../actions/mobilebearattack';
+import saveScoreReducer from './savescore';
+import { SAVE_SCORE, GO_TO_THRUHIKERS } from '../actions/savescore';
 
 const reducer = combineReducers({
+	saveScoreReducer,
 	mobileBearReducer,
 	form: formReducer,
 	authReducer,
@@ -42,6 +44,21 @@ const reducer = combineReducers({
 });
 
 export default function (state, action) {
+	if(action.type === SAVE_SCORE) {
+		console.log('hi')
+		return Object.assign({}, state, {
+			saveScoreReducer: {
+				saveScore: true
+			}
+		})
+	}
+	if(action.type === GO_TO_THRUHIKERS) {
+		return Object.assign({}, state, {
+			saveScoreReducer: {
+				saveScore: false
+			}
+		})
+	}
 	if(action.type === MOBILE_ANSWER_BEAR_QUESTION) {
 		let answer = action.answer;
 		if(answer === state.mobileBearReducer.activeQuestion.correctAnswer) {
@@ -85,21 +102,6 @@ export default function (state, action) {
 			thruHikerReducer: {users: action.users}
 		})
 	}
-    // if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
-    //     return Object.assign({}, state, {
-    //         protectedReducer: Object.assign({}, state.protectedReducer, {
-    //         	data: action.data,
-    //         	error: null
-    //         })
-    //     });
-    // }
-    // if (action.type === FETCH_PROTECTED_DATA_ERROR) {
-    //     return Object.assign({}, state, {
-    //         protectedReducer: Object.assign({}, state.protectedReducer, {
-    //         	error: action.error
-    //         })
-    //     });
-    // }
 	if (action.type === USER_VERIFIED) {
         return Object.assign({}, state, {
         	authReducer: Object.assign({}, state.authReducer, {
@@ -110,6 +112,10 @@ export default function (state, action) {
 
     if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
+        	hikerReducer: Object.assign({}, state.hikerReducer, {
+        		highscore: 0,
+        		hikerPoints: 0
+        	}),
         	authReducer: Object.assign({}, state.authReducer, {
         		authToken: null,
         		currentUser: null
@@ -128,6 +134,9 @@ export default function (state, action) {
 
     if (action.type === AUTH_SUCCESS) {
         return Object.assign({}, state, {
+        	hikerReducer: Object.assign({}, state.hikerReducer, {
+        		highscore: action.currentUser.highscore
+        	}),
         	authReducer: Object.assign({}, state.authReducer, {
         		loading: false,
         		currentUser: action.currentUser

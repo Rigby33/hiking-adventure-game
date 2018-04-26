@@ -3,13 +3,14 @@ import Header from './header';
 import './thruhikers.css';
 import {connect} from 'react-redux';
 import {thruHikerData} from '../actions/thruhiker';
+import {goToThruhikers} from '../actions/savescore';
 
 export class ThruHikers extends React.Component {
 	componentDidMount() {
 		this.props.dispatch(thruHikerData());
+		this.props.dispatch(goToThruhikers());
 	}
 	render() {
-		console.log(this.props.users);
 		const thruhikers = this.props.users.map((user, index) => {
 			return (
 				<div className="topusersandscores" key={index}>

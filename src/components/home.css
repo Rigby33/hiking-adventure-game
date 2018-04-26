@@ -19,7 +19,7 @@
 
 @media only screen and (max-width: 1500px) {
 	.instructions {
-		max-height: 300px
+		max-height: 250px
 	}
 }
 
@@ -168,9 +168,6 @@ button.showinstructions {
 	background-color: rgba(62, 106, 168);
 	color: white;
 	border: 0;
-/*	background-color: rgba(255, 255, 255, .2);
-	color: rgb(255, 255, 255);
-	border: 1px solid rgb(255, 255, 255);*/
 	padding: 15px 20px;
 	border-radius: 10px;
 	font-size: 1em;
@@ -182,14 +179,8 @@ button.showinstructions {
 }
 
 button.showinstructions:hover {
-/*	background-color: rgba(91, 142, 222, .2)!important;
-	color: rgb(91, 142, 222)!important;
-	border: 1px solid rgb(91, 142, 222)!important;*/
 	background-color: rgba(194, 154, 27)!important;
 }
-/*
-	background-color: rgba(255, 200, 22, .2);
-	border: 1px solid rgb(255, 200, 22);*/
 .instructions {
 	transition: all 0.5s ease-in-out;
 }
@@ -214,7 +205,6 @@ button.showinstructions:hover {
 /* Handle on hover */
 .instructions::-webkit-scrollbar-thumb:hover {
     background-color: rgba(91, 142, 222);
-/*    border: 1px solid rgb(91, 142, 222);*/
 }
 
 .instructionsWrapper {

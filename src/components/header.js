@@ -7,15 +7,6 @@ import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
 export class Header extends React.Component {
-	// goToGame() {
-	// 	return this.props.dispatch(game());
-	// }
-	// goToSignup() {
-	// 	return this.props.dispatch(signup());
-	// }
-	// goToLogin() {
-	// 	return this.props.dispatch(login());
-	// }
 	logOut(event) {
 		event.preventDefault();
         this.props.dispatch(clearAuth());
@@ -26,7 +17,7 @@ export class Header extends React.Component {
 			<h2>Welcome {this.props.currentUser.username}!</h2> :
 			'';
 		const logInOut = this.props.currentUser !== null ?
-		<a className="headerlink" href="#" onClick={(event) => this.logOut(event)} style={{color: this.props.login ? 'white' : ''}}>Log out</a> :
+		<a className="headerlink" href="/" onClick={(event) => this.logOut(event)} style={{color: this.props.login ? 'white' : ''}}>Log out</a> :
 		<NavLink to='/login' className="headerlink" style={{color: this.props.login ? 'white' : ''}}>Log in</NavLink>
 		return (
 			<header>

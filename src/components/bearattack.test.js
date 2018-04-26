@@ -31,8 +31,19 @@ import 'jest-localstorage-mock';
 // 	})
 // });
 
+// it('Should fire the onAdd callback when the form is submitted', () => {
+//     const callback = jest.fn();
+//     const wrapper = mount(<AddForm onAdd={callback} />);
+//     const value = 'Foobar';
+//     wrapper.instance().setEditing(true);
+//     wrapper.update();
+//     wrapper.find('input[type="text"]').instance().value = value;
+//     wrapper.simulate('submit');
+//     expect(callback).toHaveBeenCalledWith(value);
+// });
+
 describe('<BearAttack/>', () => {
 	it('Renders without crashing', () => {
-		shallow(<BearAttack store={store}/>)
+		shallow(<BearAttack store={store} activeQuestion={store.getState().bearReducer.activeQuestion}/>)
 	})
 })
