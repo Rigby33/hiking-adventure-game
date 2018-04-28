@@ -1,4 +1,4 @@
-const questionStore = [
+export const questionStore = [
 	{
 		question: 'How long is the Appalachian Trail?',
 		answers: [
@@ -155,7 +155,7 @@ const questionStore = [
 	}
 ];
 
-const randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
+export const randomQuestion = Math.floor(Math.random()*(questionStore.length-1));
 
 const initialState = {questionStore: questionStore, activeQuestion: questionStore[randomQuestion]};
 

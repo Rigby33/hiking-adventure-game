@@ -1,4 +1,4 @@
-const questionStore = [
+export const questionStore = [
 	{
 		question: 'The elevation gain/loss of hiking the entire AT is the equvilant of climbing mount everest ___ times',
 		answers: [
@@ -294,7 +294,7 @@ const questionStore = [
 	}
 ];
 
-const randomNumber = Math.floor(Math.random()*(questionStore.length-1));
+export const randomNumber = Math.floor(Math.random()*(questionStore.length-1));
 
 
 const initialState = {questionStore: questionStore, activeQuestion: questionStore[randomNumber], show: false};

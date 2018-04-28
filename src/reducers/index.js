@@ -9,12 +9,7 @@ import { ANSWER_BEAR_QUESTION } from '../actions/bearattack';
 import { reset } from './matrix';
 import homeReducer from './home';
 import authReducer from './auth';
-import protectedReducer from './protected';
 import { routerReducer } from 'react-router-redux';
-// import {
-//     FETCH_PROTECTED_DATA_SUCCESS,
-//     FETCH_PROTECTED_DATA_ERROR
-// } from '../actions/protected';
 import {
     CLEAR_AUTH,
     AUTH_REQUEST,
@@ -35,7 +30,6 @@ const reducer = combineReducers({
 	form: formReducer,
 	authReducer,
 	thruHikerReducer,
-	protectedReducer,
 	bearReducer,
 	matrixReducer,
 	hikerReducer,
@@ -45,7 +39,6 @@ const reducer = combineReducers({
 
 export default function (state, action) {
 	if(action.type === SAVE_SCORE) {
-		console.log('hi')
 		return Object.assign({}, state, {
 			saveScoreReducer: {
 				saveScore: true
@@ -482,7 +475,6 @@ export default function (state, action) {
 		const newMatrix = reset();
 		const newHikerStart = newMatrix.path[0];
 		const auth = authReducer();
-		const protectedData = protectedReducer();
 		const highscore = hikerReducer().highscore;
 		const thruHikers = thruHikerReducer();
 		const mobileBearQuestions = mobileBearReducer().questionStore;
@@ -494,7 +486,6 @@ export default function (state, action) {
 			},
 			thruHikerReducer: thruHikers,
 			router: state.router,
-			protectedReducer: protectedData,
 			authReducer: auth,
 			homeReducer: {
 				showInstructions

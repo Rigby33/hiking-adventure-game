@@ -11,7 +11,9 @@ export const registerUser = (user, highscore) => dispatch => {
         body: JSON.stringify({user, highscore})
     })
         .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
+        .then(res => {
+            return res.json()
+        })
         .catch(err => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {

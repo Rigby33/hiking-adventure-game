@@ -1,4 +1,4 @@
-import {SAVE_SCORE, saveScore} from './savescore';
+import {SAVE_SCORE, saveScore, updateHighScore, GO_TO_THRUHIKERS, gotToThruHikers} from './savescore';
 
 describe('saveScore', () => {
 	it('Should return action', () => {

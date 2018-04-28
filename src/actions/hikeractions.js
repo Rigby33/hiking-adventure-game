@@ -1,9 +1,9 @@
 export const HIKE = 'HIKE';
-export const hike = (keycode, hikerState) => ({
+export const hike = (keycode) => {
+	return ({
 	type: HIKE,
-	keycode,
-	hikerState
-});
+	keycode
+})};
 
 export const HIKER_FOCUS = 'HIKER_FOCUS';
 export const focusHiker = focus => ({

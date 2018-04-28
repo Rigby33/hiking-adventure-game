@@ -1,6 +1,6 @@
 import matrixReducer from './matrix';
 
-const hikerMatrix = matrixReducer();
+export const hikerMatrix = matrixReducer();
 let startingPoint
 
 function hikerStarter(matrix) {
@@ -9,7 +9,7 @@ function hikerStarter(matrix) {
 }
 
 
-const hikerStart = hikerStarter(hikerMatrix);
+export const hikerStart = hikerStarter(hikerMatrix);
 
 const initialState = {hikerMatrix, hikerStart, hikerPoints: 0, highscore: 0, hikerFocus: true};
 

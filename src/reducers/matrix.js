@@ -27,18 +27,6 @@ function createPath(matrix, row=10, column, path=[]) {
 	return createPath(matrix, nextNode.x, nextNode.y, path);
 }
 
-// function award(path) {
-// 	let randomAward = Math.floor(Math.random()*path.length);
-// 	path[randomAward]['award'] = true;
-// }
-
-// function bear(path) {
-// 	let randomBear = Math.floor(Math.random()*path.length);
-// 	if(randomBear !== 0) {
-// 		path[randomBear]['bear'] = true;
-// 	}
-// }
-
 function chooseNode(matrix, row, column) {
 	let nodes = possibleNodes(matrix, row, column);
 	let randomNumber = Math.floor(Math.random()*nodes.length);
@@ -79,7 +67,7 @@ export function reset() {
 	return createPath(createGrid());
 }
 
-const {matrix, path} = reset();
+export const {matrix, path} = reset();
 
 const initialState = {matrix, path};
 

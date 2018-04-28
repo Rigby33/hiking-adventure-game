@@ -3,11 +3,9 @@ import {HIKE, hike, HIKER_FOCUS, focusHiker} from './hikeractions';
 describe('hike', () => {
 	it('Should return the actions', () => {
 		const keycode = 38;
-		const hikerState = true;
-		const action = hike(keycode, hikerState);
+		const action = hike(keycode);
 		expect(action.type).toEqual(HIKE);
 		expect(action.keycode).toEqual(keycode);
-		expect(action.hikerState).toEqual(hikerState);
 	})
 })
 
