@@ -1,6 +1,6 @@
 # Hiking an Adventure [![Build Status](https://travis-ci.org/Rigby33/hiking-adventure-game.svg?branch=master)](https://travis-ci.org/Rigby33/hiking-adventure-game)
 
-[Live URL](#live-url) | [Summary of app](#summary-of-application) | [Technologies used](#technologies-used) | [API](#restful-api)
+[Live URL](#live-url) | [Summary of app](#summary-of-application) | [Technologies used](#technologies-used) | [API](#api)
 ***
 
 ![Hiking an Adventure Logo](https://dl.dropbox.com/s/lun6188r6uki6k5/hiking-an-adventure-md.png)
